@@ -12,12 +12,7 @@ const config: Config = {
   theme: {
     extend: {},
   },
-<<<<<<< Updated upstream
-  plugins: [],
-  darkMode: 'class',
-=======
   darkMode: 'class',
   plugins: [nextui()],
->>>>>>> Stashed changes
 };
 export default config;
