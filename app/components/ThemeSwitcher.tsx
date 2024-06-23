@@ -19,9 +19,8 @@ export function ThemeSwitcher() {
   };
 
   return (
-    <>
-      The current theme is: {theme?.toUpperCase()}
-      <label className="relative inline-flex items-center cursor-pointer">
+    <div id="theme-switcher">
+      <label className="relative inline-flex float-right items-center cursor-pointer">
         <input
           className="sr-only peer"
           value=""
@@ -43,6 +42,6 @@ export function ThemeSwitcher() {
           peer-checked:after:translate-y-0"
         ></div>
       </label>
-    </>
+    </div>
   );
 }
