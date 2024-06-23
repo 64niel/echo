@@ -28,15 +28,16 @@ export function ThemeSwitcher() {
           type="checkbox"
           title="toggle light/dark mode"
           onChange={handleToggle}
+          checked={theme === "light"}
         />
         <div
           className="w-24 h-12 rounded-full ring-0 peer duration-500 outline-none bg-third overflow-hidden
           before:flex before:items-center before:justify-center after:flex after:items-center after:justify-center
-          before:content-['☀️'] before:absolute before:h-10 before:w-10 before:top-1/2 before:bg-white
+          before:content-['🌙'] before:absolute before:h-10 before:w-10 before:top-1/2 before:bg-[#0B132B]
           before:rounded-full before:left-1 before:-translate-y-1/2 before:transition-all before:duration-700
           peer-checked:before:opacity-0 peer-checked:before:rotate-90 peer-checked:before:-translate-y-full
-          shadow-lg shadow-gray-400 peer-checked:shadow-lg peer-checked:shadow-gray-700 peer-checked:bg-third
-          after:content-['🌙'] after:absolute after:bg-[#0B132B] after:rounded-full after:top-[4px] 
+          shadow-md shadow-gray-700 peer-checked:shadow-md peer-checked:shadow-gray-400 peer-checked:bg-third
+          after:content-['☀️'] after:absolute after:bg-white after:rounded-full after:top-[4px] 
           after:right-1 after:translate-y-full after:w-10 after:h-10 after:opacity-0 after:transition-all
           after:duration-700 peer-checked:after:opacity-100 peer-checked:after:rotate-90
           peer-checked:after:translate-y-0"

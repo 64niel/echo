@@ -16,6 +16,11 @@ const config: Config = {
   plugins: [
     nextui({
       themes: {
+        extend: {
+          fontFamily: {
+            'segoeui': ['SegoeUI', 'Helvetica', 'Arial']
+          },
+        },
         dark: {
           colors: {
             background: {
