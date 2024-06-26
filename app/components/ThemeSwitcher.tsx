@@ -29,7 +29,7 @@ export function ThemeSwitcher() {
           onChange={handleToggle}
           checked={theme === "dark"} />
         <div
-          className="relative w-[110px] h-[50px] bg-primary peer-checked:bg-third rounded-full after:absolute after:content-[''] after:w-[40px] after:h-[40px] after:bg-gradient-to-r from-orange-500 to-yellow-400 peer-checked:after:from-primary peer-checked:after:to-black after:rounded-full after:top-[5px] after:left-[5px] active:after:w-[50px] peer-checked:after:left-[105px] peer-checked:after:translate-x-[-100%] shadow-sm duration-300 after:duration-300 after:shadow-md"
+          className="relative w-28 h-[50px] bg-primary hover:bg-third peer-checked:bg-primary peer-checked:hover:bg-third rounded-full after:absolute after:content-[''] after:w-[40px] after:h-[40px] after:bg-gradient-to-r from-orange-500 to-yellow-400 peer-checked:after:from-primary peer-checked:after:to-black after:rounded-full after:top-[5px] after:left-[5px] active:after:w-[50px] peer-checked:after:left-[105px] peer-checked:after:translate-x-[-100%] shadow-sm duration-300 after:duration-300 after:shadow-md"
         ></div>
         <svg
           height="0"

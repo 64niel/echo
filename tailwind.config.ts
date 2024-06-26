@@ -34,9 +34,9 @@ const config: Config = {
               DEFAULT: "#2E604F",
               foreground: "#ffffff",
             },
-            wb: {
-              DEFAULT: "#ffffff",
-              foreground: "#000000",
+            fourth: {
+              DEFAULT: "#000000",
+              foreground: "#ffffff",
             },
             focus: "#1C2541",
           },
@@ -56,16 +56,16 @@ const config: Config = {
               foreground: "#ffffff",
             },
             third: {
-              DEFAULT: "#50A589",
+              DEFAULT: "#3A7964",
               foreground: "#ffffff",
             },
-            wb: {
-              DEFAULT: "#000000",
+            fourth: {
+              DEFAULT: "#1C2541",
               foreground: "#ffffff",
             },
             focus: "#50A589",
           },
-        }
+        },
       },
     }),
   ],
