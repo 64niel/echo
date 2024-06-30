@@ -20,7 +20,7 @@ export function ThemeSwitcher() {
 
   return (
     <div id="theme-switcher">
-      <label className="relative inline-flex float-right items-center cursor-pointer">
+      <label className="relative inline-flex float-right items-center mr-5 cursor-pointer">
         <input 
           className="peer hidden" 
           id="toggle" 
@@ -29,7 +29,7 @@ export function ThemeSwitcher() {
           onChange={handleToggle}
           checked={theme === "dark"} />
         <div
-          className="relative w-28 h-[50px] bg-primary hover:bg-third peer-checked:bg-primary peer-checked:hover:bg-third rounded-full after:absolute after:content-[''] after:w-[40px] after:h-[40px] after:bg-gradient-to-r from-orange-500 to-yellow-400 peer-checked:after:from-primary peer-checked:after:to-black after:rounded-full after:top-[5px] after:left-[5px] active:after:w-[50px] peer-checked:after:left-[105px] peer-checked:after:translate-x-[-100%] shadow-sm duration-300 after:duration-300 after:shadow-md"
+          className="relative w-28 h-12 bg-primary hover:bg-third peer-checked:bg-primary peer-checked:hover:bg-third rounded-full after:absolute after:content-[''] after:w-[40px] after:h-[40px] after:bg-gradient-to-r from-orange-500 to-yellow-400 peer-checked:after:from-primary peer-checked:after:to-black after:rounded-full after:top-[5px] after:left-[5px] active:after:w-[50px] peer-checked:after:left-[105px] peer-checked:after:translate-x-[-100%] shadow-sm duration-300 after:duration-300 after:shadow-md"
         ></div>
         <svg
           height="0"

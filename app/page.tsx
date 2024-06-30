@@ -11,9 +11,8 @@ import { NavBar } from "./components/NavBar";
 import { SignInButton } from "./components/SignIn";
 
 export default function Home() {
-
   return (
-    <main className="text-foreground bg-background min-h-screen flex-col items-center justify-between duration-300">
+    <main className="text-foreground bg-background min-h-screen-20 flex-col items-center justify-between duration-300">
       <LogoImage />
       <div className="-mt-28 mb-28">
         <NotificationButton />
