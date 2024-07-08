@@ -1,14 +1,14 @@
-import "./globals.css";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
 import ReactDOM from "react-dom/client";
 import {NextUIProvider} from "@nextui-org/react";
 import {ThemeProvider as NextThemesProvider} from "next-themes";
-import { LogoImage } from "./components/Logo";
 import { ThemeSwitcher } from "./components/ThemeSwitcher";
 import { NotificationButton } from "./components/NotificationButton";
 import { NavBar } from "./components/NavBar";
 import { SignInButton } from "./components/SignIn";
+import SidePanel from "./components/SidePanel";
+import { LogoImage } from "./components/Logo";
 
 export default function Home() {
   return (
@@ -20,6 +20,12 @@ export default function Home() {
         <ThemeSwitcher />
       </div>
       <NavBar />
+      <SidePanel />
+      <footer className="py-3 mt-[60vh] bg-primary">
+        <p className="text-center text-sm text-foreground">
+          &copy; 2022 Echo. All rights reserved.
+        </p>
+      </footer>
     </main>
   );
 }

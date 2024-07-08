@@ -1,0 +1,11 @@
+/* This CSS targets the span inside your link elements with the group class */
+.group:hover .underline::before {
+    @apply scale-x-100; /* This applies the full scale effect on hover */
+  }
+  
+  .underline::before {
+    @apply absolute block w-full h-px bg-black scale-x-0 transition-transform duration-400 ease-in-out;
+    content: '';
+    bottom: 0;
+    left: 0;
+  }
