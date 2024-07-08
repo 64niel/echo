@@ -12,9 +12,17 @@
   }
 }
 
+@font-face {
+  font-family: 'Segoe UI';
+  src: url('/public/fonts/Segoe\ UI.ttf') format('ttf');
+}
+
+main {
+  font-family: 'Segoe UI'
+}
+
 body {
-  color: rgb(var(--foreground-rgb));
-  padding: 1rem;
+    font-family: 'Segoe UI'
 }
 
 @layer utilities {

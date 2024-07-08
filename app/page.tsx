@@ -1,36 +1,30 @@
-'use client'
-
 import Image from "next/image";
 import React, { useRef } from "react";
 import ReactDOM from "react-dom/client";
 import {NextUIProvider} from "@nextui-org/react";
 import {ThemeProvider as NextThemesProvider} from "next-themes";
 import { ThemeSwitcher } from "./components/ThemeSwitcher";
-import { useTheme } from 'next-themes';
+import { NotificationButton } from "./components/NotificationButton";
+import { NavBar } from "./components/NavBar";
+import { SignInButton } from "./components/SignIn";
+import SidePanel from "./components/SidePanel";
 
 export default function Home() {
-  const { theme } = useTheme();
-
   return (
-    <main className="text-foreground bg-background flex min-h-screen flex-col items-center justify-between p-24">
-      <a href="/">
-        <Image
-          src={theme === 'light' ? "/logos/logo_light.png" : "/logos/logo_dark.png"}
-          width={500}
-          height={500}
-          alt="Echo Logo"
-          className=""  />
-      </a>
-      <ThemeSwitcher />
-      <nav>
-        <ul className="flex">
-          <li className="text-lg p-5"><a href="/">Home</a></li>
-          <li className="text-lg p-5"><a href="/events.tsx">Events</a></li>
-          <li className="text-lg p-5"><a href="/results.tsx">Results</a></li>
-          <li className="text-lg p-5"><a href="/matches.tsx">Matches</a></li>
-          <li className="text-lg p-5"><a href="/calendar.tsx">Calendar</a></li>
-        </ul>
-      </nav>
+    <main className="text-foreground bg-background min-h-screen-20 flex-col items-center justify-between duration-300">
+      <LogoImage />
+      <div className="-mt-28 mb-28">
+        <NotificationButton />
+        <SignInButton />
+        <ThemeSwitcher />
+      </div>
+      <NavBar />
+      <SidePanel />
+      <footer className="py-3 mt-[60vh] bg-primary">
+        <p className="text-center text-sm text-foreground">
+          &copy; 2022 Echo. All rights reserved.
+        </p>
+      </footer>
     </main>
   );
 }
