@@ -1,5 +1,3 @@
-import "./components.css";
-
 export function NavBar() {
   return (
     <nav className="flex justify-between items-center w-screen py-1.5 bg-primary">

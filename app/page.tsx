@@ -1,9 +1,11 @@
+import '../app/globals.css';
 import Image from "next/image";
 import React, { useRef } from "react";
 import ReactDOM from "react-dom/client";
 import {NextUIProvider} from "@nextui-org/react";
 import {ThemeProvider as NextThemesProvider} from "next-themes";
 import { ThemeSwitcher } from "./components/ThemeSwitcher";
+import { LogoImage } from './components/Logo';
 import { NotificationButton } from "./components/NotificationButton";
 import { NavBar } from "./components/NavBar";
 import { SignInButton } from "./components/SignIn";
