@@ -27,7 +27,7 @@ const config: Config = {
               foreground: "#ffffff",
             },
             secondary: {
-              DEFAULT: "#50A589",
+              DEFAULT: "#0B132B",
               foreground: "#ffffff",
             },
             third: {
@@ -37,6 +37,18 @@ const config: Config = {
             fourth: {
               DEFAULT: "#000000",
               foreground: "#ffffff",
+            },
+            fifth: {
+              DEFAULT: "#50A589",
+              foreground: "#ffffff",
+            },
+            textbw: {
+              DEFAULT: "#000000",
+              foreground: "#ffffff",
+            },
+            objbw: {
+              DEFAULT: "#ffffff",
+              foreground: "#000000",
             },
             focus: "#1C2541",
           },
@@ -56,11 +68,19 @@ const config: Config = {
               foreground: "#ffffff",
             },
             third: {
-              DEFAULT: "#3A7964",
+              DEFAULT: "#50A589",
               foreground: "#ffffff",
             },
-            fourth: {
-              DEFAULT: "#1C2541",
+            fifth: {
+              DEFAULT: "#2E604F",
+              foreground: "#ffffff",
+            },
+            textbw: {
+              DEFAULT: "#ffffff",
+              foreground: "#000000",
+            },
+            objbw: {
+              DEFAULT: "#000000",
               foreground: "#ffffff",
             },
             focus: "#50A589",
