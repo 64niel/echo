@@ -1,5 +1,6 @@
 'use client'
 
+import "./components.css";
 import { useState } from 'react';
 
 export default function SidePanel() {
@@ -41,14 +42,13 @@ export default function SidePanel() {
           <nav>
             <ul className='text-center'>
               {games.map((game) => (
-                <li 
-                  key={game} 
-                  className="mb-1 p-3 text-2xl bg-secondary bg-no-repeat bg-cover hover:cursor-pointer"
-                  onMouseEnter={(e) => e.currentTarget.style.backgroundImage = `url(${getImagePathForGame(game)})`}
-                  onMouseLeave={(e) => e.currentTarget.style.backgroundImage = ''}
-                >
+                <div className="game-item mb-1 p-3 text-2xl bg-secondary hover:cursor-pointer" key={game}>
+                  <div 
+                    className="game-item-hover"
+                    style={{ backgroundImage: `url(${getImagePathForGame(game)})` }}
+                  ></div>
                   {game}
-                </li>
+                </div>
               ))}
             </ul>
           </nav>

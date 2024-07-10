@@ -9,3 +9,25 @@
     bottom: 0;
     left: 0;
   }
+
+.game-item {
+position: relative;
+background-size: cover;
+background-position: center;
+}
+
+.game-item-hover {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-size: cover;
+background-position: center;
+opacity: 0;
+transition: opacity 0.3s ease-in-out;
+}
+
+.game-item:hover .game-item-hover {
+opacity: 1;
+}
