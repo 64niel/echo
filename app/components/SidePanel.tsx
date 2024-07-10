@@ -7,6 +7,14 @@ export default function SidePanel() {
   const togglePanel = () => setIsPanelOpen(!isPanelOpen);
 
   const games = ["LoL", "CS2", "Valorant", "R6", "PUBG", "Dota 2", "OW"];
+  
+  // Function to generate image path based on game name
+  function getImagePathForGame(gameName: string): string {
+    // Replace spaces with underscores and convert to lowercase for the file name
+    const fileName = gameName.replace(/\s+/g, '_').toLowerCase();
+    // Return the path using the standardized file name
+    return `/images/${fileName}_sb.png`;
+  }
 
   return (
     <div className="flex my-3">
@@ -29,14 +37,21 @@ export default function SidePanel() {
         )}
       </div>
       {isPanelOpen && (
-        <div className="fixed left-0 h-auto w-40 bg-primary text-bw p-3 pt-14 transition-transform transform -translate-x-0">
-          <ul className='text-center'>
-            {games.map((game) => (
-              <li key={game} className="mb-1 p-3 text-2xl bg-secondary hover:bg-black hover:cursor-pointer duration-300">
-                {game}
-              </li>
-            ))}
-          </ul>
+        <div className="fixed left-0 h-auto w-40 bg-primary text-bw p-3 pt-14">
+          <nav>
+            <ul className='text-center'>
+              {games.map((game) => (
+                <li 
+                  key={game} 
+                  className="mb-1 p-3 text-2xl bg-secondary bg-no-repeat bg-cover hover:cursor-pointer"
+                  onMouseEnter={(e) => e.currentTarget.style.backgroundImage = `url(${getImagePathForGame(game)})`}
+                  onMouseLeave={(e) => e.currentTarget.style.backgroundImage = ''}
+                >
+                  {game}
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
       )}
     </div>

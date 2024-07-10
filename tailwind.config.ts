@@ -1,3 +1,4 @@
+import { url } from "inspector";
 import type { Config } from "tailwindcss";
 // tailwind.config.js
 const {nextui} = require("@nextui-org/react");
@@ -10,7 +11,11 @@ const config: Config = {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        
+      },
+    },
   },
   darkMode: 'class',
   plugins: [
