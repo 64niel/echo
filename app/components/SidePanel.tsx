@@ -18,7 +18,7 @@ export default function SidePanel() {
   }
 
   return (
-    <div className="flex my-3">
+    <div className="flex flex-col my-3">
       <div className="flex items-center pl-2 pt-2 w-full">
         {/* Side Panel Close/Open Button */}
         <span onClick={togglePanel} className='z-10 hover:cursor-pointer'>
@@ -42,16 +42,28 @@ export default function SidePanel() {
           <nav>
             <ul className='text-center'>
               {games.map((game) => (
-                <div className="game-item mb-2 p-3 text-2xl bg-secondary outline outline-2 outline-black hover:cursor-pointer" key={game}>
+                <li className="game-item mb-2 p-3 text-2xl bg-secondary outline outline-2 outline-black hover:cursor-pointer" key={game}>
                   <div 
                     className="game-item-hover"
                     style={{ backgroundImage: `url(${getImagePathForGame(game)})` }}
                   ></div>
                   {game}
-                </div>
+                </li>
               ))}
             </ul>
           </nav>
+        </div>
+      )}
+      {isPanelOpen && (
+        <div className="h-auto w-40 px-3 py-2 mt-[50vh] bg-primary text-center text-white z-10">
+          <h1 className="text-xl pb-1">Information</h1>
+          <ul className="underline p-0.5">
+            <li><a href="">Leagues</a></li>
+            <li><a href="">Games Supported</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="">Sources</a></li>
+            <li><a href="">Legal</a></li>
+          </ul>
         </div>
       )}
     </div>
