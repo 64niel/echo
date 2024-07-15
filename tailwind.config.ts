@@ -73,7 +73,11 @@ const config: Config = {
               foreground: "#ffffff",
             },
             third: {
-              DEFAULT: "#50A589",
+              DEFAULT: "#3A7964",
+              foreground: "#ffffff",
+            },
+            fourth: {
+              DEFAULT: "#1C2541",
               foreground: "#ffffff",
             },
             fifth: {

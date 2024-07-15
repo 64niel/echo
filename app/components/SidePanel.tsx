@@ -7,7 +7,7 @@ export default function SidePanel() {
   const [isPanelOpen, setIsPanelOpen] = useState(true);
   const togglePanel = () => setIsPanelOpen(!isPanelOpen);
 
-  const games = ["LoL", "CS2", "Valorant", "R6", "PUBG", "Dota 2", "OW"];
+  const games = ["LoL", "CS2", "Valorant", "R6 Siege", "PUBG", "Dota 2", "Overwatch"];
   
   // Function to generate image path based on game name
   function getImagePathForGame(gameName: string): string {
@@ -21,7 +21,7 @@ export default function SidePanel() {
     <div className="flex my-3">
       <div className="flex items-center pl-2 pt-2 w-full">
         {/* Side Panel Close/Open Button */}
-        <span onClick={togglePanel} className='z-10'>
+        <span onClick={togglePanel} className='z-10 hover:cursor-pointer'>
           <svg 
             className="size-10 fill-objbw duration-300" 
             viewBox="0 0 1024 1024" 
@@ -38,11 +38,11 @@ export default function SidePanel() {
         )}
       </div>
       {isPanelOpen && (
-        <div className="fixed left-0 h-auto w-40 bg-primary text-bw p-3 pt-14">
+        <div className="absolute left-0 h-auto w-40 bg-primary text-white p-3 pt-14">
           <nav>
             <ul className='text-center'>
               {games.map((game) => (
-                <div className="game-item mb-1 p-3 text-2xl bg-secondary hover:cursor-pointer" key={game}>
+                <div className="game-item mb-2 p-3 text-2xl bg-secondary outline outline-2 outline-black hover:cursor-pointer" key={game}>
                   <div 
                     className="game-item-hover"
                     style={{ backgroundImage: `url(${getImagePathForGame(game)})` }}

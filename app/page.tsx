@@ -21,7 +21,7 @@ export default function Home() {
       </div>
       <NavBar />
       <SidePanel />
-      <footer className="py-3 mt-[60vh] bg-primary">
+      <footer className="py-3 mt-[65vh] bg-primary">
         <p className="text-center text-sm text-foreground">
           &copy; 2022 Echo. All rights reserved.
         </p>
