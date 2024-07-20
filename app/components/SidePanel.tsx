@@ -56,13 +56,13 @@ export default function SidePanel() {
       )}
       {isPanelOpen && (
         <div className="h-auto w-40 px-3 py-2 mt-[50vh] bg-primary text-center text-white z-10">
-          <h1 className="text-xl pb-1">Information</h1>
-          <ul className="underline p-0.5">
-            <li><a href="">Leagues</a></li>
-            <li><a href="">Games Supported</a></li>
-            <li><a href="">Contact</a></li>
-            <li><a href="">Sources</a></li>
-            <li><a href="">Legal</a></li>
+          <h1 className="text-xl pb-1">Information:</h1>
+          <ul className="p-0.5">
+            <li><a href="" className="underline hover:text-third hover:decoration-third">Leagues</a></li>
+            <li><a href="" className="underline hover:text-third hover:decoration-third">Games Supported</a></li>
+            <li><a href="" className="underline hover:text-third hover:decoration-third">Contact</a></li>
+            <li><a href="" className="underline hover:text-third hover:decoration-third">Sources</a></li>
+            <li><a href="" className="underline hover:text-third hover:decoration-third">Legal</a></li>
           </ul>
         </div>
       )}
