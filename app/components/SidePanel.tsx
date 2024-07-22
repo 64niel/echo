@@ -19,26 +19,26 @@ export default function SidePanel() {
 
   return (
     <div className="flex flex-col my-3">
-      <div className="flex items-center pl-2 pt-2 mb-16">
+      <div className={`flex items-center ${isPanelOpen ? 'w-44' : 'w-16'} pl-2 py-2 mb-24 border-3 border-black border-opacity-50 bg-primary z-10`}>
         {/* Side Panel Close/Open Button */}
-        <span onClick={togglePanel} className='z-10 hover:cursor-pointer'>
+        <span onClick={togglePanel} className='hover:cursor-pointer'>
           <svg 
-            className="size-10 fill-objbw duration-300" 
+            className="size-10 fill-objbw duration-300"
             viewBox="0 0 1024 1024" 
             version="1.1" 
             xmlns="http://www.w3.org/2000/svg"
             >
             <path d="M232.369231 282.813046h559.261538a31.507692 31.507692 0 0 0 0-63.015384h-559.261538a31.507692 31.507692 0 0 0 0 63.015384zM791.630769 480.492308h-559.261538a31.507692 31.507692 0 0 0 0 63.015384h559.261538a31.507692 31.507692 0 0 0 0-63.015384zM791.630769 741.186954h-559.261538a31.507692 31.507692 0 0 0 0 63.015384h559.261538a31.507692 31.507692 0 0 0 0-63.015384z"  />
           </svg>
-        </span>
+        </span> 
         {isPanelOpen && (
-          <div className="pl-2 z-10">
+          <div className="pl-2">
             <h2 className="text-2xl font-semibold duration-300">GAMES</h2>
           </div>
         )}
       </div>
       {isPanelOpen && (
-        <div className="absolute left-0 w-44 h-[460px] p-3 pt-14 scrollbar-medium scrollbar-thumb-rounded-full scrollbar-thumb-primary scrollbar-track-gray-400 overflow-y-scroll bg-primary text-white">
+        <div className="absolute left-0 w-44 h-[460px] p-3 mt-[62px] scrollbar-medium scrollbar-thumb-rounded-full scrollbar-thumb-primary scrollbar-track-gray-400 overflow-y-scroll bg-primary text-white">
           <nav>
             <ul className='text-center'>
               {games.map((game) => (
