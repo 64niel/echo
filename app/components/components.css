@@ -1,3 +1,5 @@
+@tailwind utilities;
+
 /* This CSS targets the span inside your link elements with the group class */
 .group:hover .underline::before {
     @apply scale-x-100; /* This applies the full scale effect on hover */
@@ -30,4 +32,25 @@ transition: opacity 0.3s ease-in-out;
 
 .game-item:hover .game-item-hover {
 opacity: 1;
+}
+
+@layer utilities {
+  .scrollbar-medium::-webkit-scrollbar {
+    width: 10px;
+  }
+  .scrollbar-medium::-webkit-scrollbar-track {
+    background-color: var(--scrollbar-track);
+    border-radius: var(--scrollbar-track-radius);
+  }
+  .scrollbar-medium::-webkit-scrollbar-track:hover {
+    background-color: var(--scrollbar-track-hover, var(--scrollbar-track));
+  }
+  .scrollbar-medium::-webkit-scrollbar-track:active {
+    background-color: var(--scrollbar-track-active, var(--scrollbar-track-hover, var(--scrollbar-track)));
+  }
+  .scrollbar-medium::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+    border-radius: var(--scrollbar-thumb-radius);
+    border: 2px solid rgba(0, 0, 0, 0.5);
+  }
 }

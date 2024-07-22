@@ -10,7 +10,7 @@ export default function Home() {
       <PageHeader />
       <SidePanel />
       <footer className="py-3 mt-10 bg-primary">
-        <p className="text-center text-sm text-foreground">
+        <p className="text-center text-sm text-foreground duration-300">
           &copy; 2022 Echo. All rights reserved.
         </p>
       </footer>

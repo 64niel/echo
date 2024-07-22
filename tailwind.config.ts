@@ -19,6 +19,7 @@ const config: Config = {
   },
   darkMode: 'class',
   plugins: [
+    require('tailwind-scrollbar')({ nocompatible: true }),
     nextui({
       themes: {
         dark: {

@@ -7,7 +7,7 @@ export default function SidePanel() {
   const [isPanelOpen, setIsPanelOpen] = useState(true);
   const togglePanel = () => setIsPanelOpen(!isPanelOpen);
 
-  const games = ["LoL", "CS2", "Valorant", "R6 Siege", "PUBG", "Dota 2", "Overwatch"];
+  const games = ["LoL", "CS2", "Valorant", "R6 Siege", "PUBG", "Dota 2", "Overwatch", "MLBB"];
   
   // Function to generate image path based on game name
   function getImagePathForGame(gameName: string): string {
@@ -19,7 +19,7 @@ export default function SidePanel() {
 
   return (
     <div className="flex flex-col my-3">
-      <div className="flex items-center pl-2 pt-2 w-full">
+      <div className="flex items-center pl-2 pt-2 mb-16">
         {/* Side Panel Close/Open Button */}
         <span onClick={togglePanel} className='z-10 hover:cursor-pointer'>
           <svg 
@@ -33,16 +33,16 @@ export default function SidePanel() {
         </span>
         {isPanelOpen && (
           <div className="pl-2 z-10">
-            <h2 className="text-2xl font-semibold">GAMES</h2>
+            <h2 className="text-2xl font-semibold duration-300">GAMES</h2>
           </div>
         )}
       </div>
       {isPanelOpen && (
-        <div className="absolute left-0 h-auto w-40 bg-primary text-white p-3 pt-14">
+        <div className="absolute left-0 w-44 h-[460px] p-3 pt-14 scrollbar-medium scrollbar-thumb-rounded-full scrollbar-thumb-primary scrollbar-track-gray-400 overflow-y-scroll bg-primary text-white">
           <nav>
             <ul className='text-center'>
               {games.map((game) => (
-                <li className="game-item mb-2 p-3 text-2xl bg-secondary outline outline-2 outline-black hover:cursor-pointer" key={game}>
+                <li className="game-item mb-2 p-3 text-2xl bg-secondary hover:cursor-pointer" key={game}>
                   <div 
                     className="game-item-hover"
                     style={{ backgroundImage: `url(${getImagePathForGame(game)})` }}
@@ -55,9 +55,9 @@ export default function SidePanel() {
         </div>
       )}
       {isPanelOpen && (
-        <div className="h-auto w-40 px-3 py-2 mt-[50vh] bg-primary text-center text-white z-10">
-          <h1 className="text-xl pb-1">Information:</h1>
-          <ul className="p-0.5">
+        <div className="h-auto w-40 px-3 py-2 mt-96 bg-primary text-center text-objbw z-10">
+          <h1 className="text-xl pb-1 duration-300">Information:</h1>
+          <ul className="p-0.5 duration-300">
             <li><a href="" className="underline hover:text-third hover:decoration-third">Leagues</a></li>
             <li><a href="" className="underline hover:text-third hover:decoration-third">Games Supported</a></li>
             <li><a href="" className="underline hover:text-third hover:decoration-third">Contact</a></li>
