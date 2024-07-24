@@ -18,8 +18,8 @@ export default function SidePanel() {
   }
 
   return (
-    <div className="flex flex-col my-3">
-      <div className={`flex items-center ${isPanelOpen ? 'w-44' : 'w-16'} pl-2 py-2 mb-24 border-3 border-black border-opacity-50 bg-primary z-10`}>
+    <div className="flex flex-col my-5">
+      <div className={`flex items-center ${isPanelOpen ? 'w-44' : 'w-[60px]'} pl-2 py-2 mb-24 ${isPanelOpen ? 'border-b-3' : 'border-3'} border-black border-opacity-50 bg-primary z-10`}>
         {/* Side Panel Close/Open Button */}
         <span onClick={togglePanel} className='hover:cursor-pointer'>
           <svg 
@@ -38,7 +38,7 @@ export default function SidePanel() {
         )}
       </div>
       {isPanelOpen && (
-        <div className="absolute left-0 w-44 h-[460px] p-3 mt-[62px] scrollbar-medium scrollbar-thumb-rounded-full scrollbar-thumb-primary scrollbar-track-gray-400 overflow-y-scroll bg-primary text-white">
+        <div className="absolute left-0 w-44 h-[460px] p-3 mt-[58px] scrollbar-medium scrollbar-thumb-rounded-full scrollbar-thumb-primary scrollbar-track-gray-400 overflow-y-scroll bg-primary text-white">
           <nav>
             <ul className='text-center'>
               {games.map((game) => (

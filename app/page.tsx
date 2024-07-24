@@ -1,19 +1,25 @@
 import Image from "next/image";
-import React, { useRef } from "react";
+import React, { useState } from 'react';
 import ReactDOM from "react-dom/client";
+import PageHeader from "./components/Header";
+import Home from "./pages/home";
 import SidePanel from "./components/SidePanel";
-import { PageHeader } from "./components/Header";
 
-export default function Home() {
+export default function Base() {
   return (
-    <main className="text-foreground bg-background overflow-hidden min-h-screen-20 flex-col items-center justify-between">
+    <div className="flex flex-col min-h-screen text-foreground overflow-hidden bg-background">
       <PageHeader />
-      <SidePanel />
+        <div className="flex flex-grow">
+          <SidePanel />
+          <div className="flex-grow flex items-center justify-center">
+            <Home />
+          </div>
+        </div>
       <footer className="py-3 mt-10 bg-primary">
         <p className="text-center text-sm text-foreground duration-300">
           &copy; 2022 Echo. All rights reserved.
         </p>
       </footer>
-    </main>
+    </div>
   );
 }

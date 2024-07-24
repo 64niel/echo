@@ -4,7 +4,7 @@ import { SignInButton } from "./SignIn";
 import { LogoImage } from "./Logo";
 import { NavBar } from "./NavBar";
 
-export function PageHeader() {
+export default function SidePanel() {
     return (
         <div>   
             <LogoImage />

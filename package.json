@@ -9,14 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@api/developers-pandascore": "file:.api/apis/developers-pandascore",
     "@nextui-org/react": "^2.4.2",
+    "axios": "^1.7.2",
     "framer-motion": "^11.2.10",
+    "luxon": "^3.4.4",
     "next": "^14.2.4",
     "next-themes": "^0.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@types/luxon": "^3.4.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

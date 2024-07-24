@@ -28,6 +28,14 @@ const config: Config = {
               DEFAULT: "#0B132B",
               foreground: "#ffffff",
             },
+            pagebackground: {
+              DEFAULT: "#1C2541",
+              foreground: "#ffffff",
+            },
+            cardbackground: {
+              DEFAULT: "#0B132B",
+              foreground: "#ffffff",
+            },
             primary: {
               DEFAULT: "#1C2541",
               foreground: "#ffffff",
@@ -64,6 +72,14 @@ const config: Config = {
             background: {
               DEFAULT: "#EEEEEE",
               foreground: "#000000",
+            },
+            pagebackground: {
+              DEFAULT: "#DDDDDD",
+              foreground: "#ffffff",
+            },
+            cardbackground: {
+              DEFAULT: "#CCCCCC",
+              foreground: "#ffffff",
             },
             primary: {
               DEFAULT: "#50A589",
