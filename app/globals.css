@@ -87,7 +87,7 @@ main {
   height: 100%;
   background: transparent;
   transform-origin: top left;
-  animation: radar81 2s linear infinite;
+  animation: radar81 3s linear infinite;
   border-top: 1px dashed #fff;
 }
 

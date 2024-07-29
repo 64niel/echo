@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 import Image from "next/image";
 import React, { useState } from 'react';
 import ReactDOM from "react-dom/client";
@@ -23,3 +25,5 @@ export default function Base() {
     </div>
   );
 }
+
+
