@@ -36,6 +36,10 @@ const config: Config = {
               DEFAULT: "#0B132B",
               foreground: "#ffffff",
             },
+            carditembackground: {
+              DEFAULT: "#1C2541",
+              foreground: "#ffffff",
+            },
             primary: {
               DEFAULT: "#1C2541",
               foreground: "#ffffff",
@@ -79,6 +83,10 @@ const config: Config = {
             },
             cardbackground: {
               DEFAULT: "#CCCCCC",
+              foreground: "#ffffff",
+            },
+            carditembackground: {
+              DEFAULT: "#EEEEEE",
               foreground: "#ffffff",
             },
             primary: {

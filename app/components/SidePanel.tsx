@@ -42,7 +42,7 @@ export default function SidePanel() {
           <nav>
             <ul className='text-center'>
               {games.map((game) => (
-                <li className="game-item mb-2 p-3 text-2xl bg-secondary hover:cursor-pointer" key={game}>
+                <li className="game-item mb-2 p-3 text-2xl font-semibold bg-secondary hover:cursor-pointer" key={game}>
                   <div 
                     className="game-item-hover"
                     style={{ backgroundImage: `url(${getImagePathForGame(game)})` }}
