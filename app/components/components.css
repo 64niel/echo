@@ -54,3 +54,43 @@ opacity: 1;
     border: 2px solid rgba(0, 0, 0, 0.5);
   }
 }
+
+/* Star colour for tier */
+.star {
+  color: gray; /* Default star color */
+  font-size: 14px; /* Adjust size as needed */
+}
+
+.star.bright {
+  color: gold; /* Bright star color */
+}
+
+/* Tooltip styling for app */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  padding: 0.15em 0.3em;
+  background-color: white;
+  color: black;
+  text-align: center;
+  border-radius: 0.25em;
+  white-space: nowrap;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 100%;
+  transition-property: visibility;
+  transition-delay: 0s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  transition-delay: 0.3s;
+}

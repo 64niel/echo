@@ -46,7 +46,8 @@ export default function SidePanel() {
                   <div 
                     className="game-item-hover"
                     style={{ backgroundImage: `url(${getImagePathForGame(game)})` }}
-                  ></div>
+                  >
+                  </div>
                   {game}
                 </li>
               ))}
@@ -55,7 +56,7 @@ export default function SidePanel() {
         </div>
       )}
       {isPanelOpen && (
-        <div className="h-auto w-40 px-3 py-2 mt-96 bg-primary text-center text-objbw z-10">
+        <div className="h-auto w-44 px-3 py-2 mt-96 bg-primary text-center text-objbw z-10">
           <h1 className="text-xl pb-1 duration-300">Information:</h1>
           <ul className="p-0.5 duration-300">
             <li><a href="" className="underline hover:text-third hover:decoration-third">Leagues</a></li>
