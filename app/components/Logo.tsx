@@ -17,13 +17,13 @@ export function LogoImage() {
     }, [theme, systemTheme]); // Re-run this effect if the theme changes
 
     return (
-        <div className="inline-block">
+        <div className="inline-block h-[120px] md:h-[140px] -mb-2">
             <a href="/">
                 {logoSrc && <Image
                     src={logoSrc}
-                    width={140}
-                    height={140}
                     alt="Echo Logo"
+                    width={"140"}
+                    height={"140"}
                     className="" />}
             </a>
         </div>

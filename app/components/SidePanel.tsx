@@ -19,11 +19,11 @@ export default function SidePanel() {
 
   return (
     <div className="flex flex-col my-5">
-      <div className={`flex items-center ${isPanelOpen ? 'w-44' : 'w-[60px]'} pl-2 py-2 mb-24 ${isPanelOpen ? 'border-b-3' : 'border-3'} border-black border-opacity-50 bg-primary z-10`}>
+      <div className={`flex items-center ${isPanelOpen ? 'w-36 md:w-44' : 'w-[50px] md:w-[60px]'} pl-2 py-2 mb-24 ${isPanelOpen ? 'border-b-3' : 'border-3'} border-black border-opacity-50 bg-primary z-10`}>
         {/* Side Panel Close/Open Button */}
         <span onClick={togglePanel} className='hover:cursor-pointer'>
           <svg 
-            className="size-10 fill-objbw duration-300"
+            className="size-7 md:size-10 fill-objbw duration-300"
             viewBox="0 0 1024 1024" 
             version="1.1" 
             xmlns="http://www.w3.org/2000/svg"
@@ -33,16 +33,16 @@ export default function SidePanel() {
         </span> 
         {isPanelOpen && (
           <div className="pl-2">
-            <h2 className="text-2xl font-semibold duration-300">GAMES</h2>
+            <h2 className="text-l md:text-2xl font-semibold duration-300">GAMES</h2>
           </div>
         )}
       </div>
       {isPanelOpen && (
-        <div className="absolute left-0 w-44 h-[460px] p-3 mt-[58px] scrollbar-medium scrollbar-thumb-rounded-full scrollbar-thumb-primary scrollbar-track-gray-400 overflow-y-scroll bg-primary text-white">
+        <div className="absolute left-0 w-36 md:w-44 h-[460px] p-3 mt-[47px] md:mt-[58px] scrollbar-medium scrollbar-thumb-rounded-full scrollbar-thumb-primary scrollbar-track-gray-400 overflow-y-scroll bg-primary text-white">
           <nav>
             <ul className='text-center'>
               {games.map((game) => (
-                <li className="game-item mb-2 p-3 text-2xl font-semibold bg-secondary hover:cursor-pointer" key={game}>
+                <li className="game-item mb-2 p-3 text-l md:text-2xl font-semibold bg-secondary hover:cursor-pointer" key={game}>
                   <div 
                     className="game-item-hover"
                     style={{ backgroundImage: `url(${getImagePathForGame(game)})` }}
@@ -56,14 +56,14 @@ export default function SidePanel() {
         </div>
       )}
       {isPanelOpen && (
-        <div className="h-auto w-44 px-3 py-2 mt-96 bg-primary text-center text-objbw z-10">
-          <h1 className="text-xl pb-1 duration-300">Information:</h1>
+        <div className="h-auto w-36 md:w-44 px-3 py-2 mt-96 bg-primary text-center text-objbw z-10">
+          <h1 className="text-medium md:text-xl pb-1 duration-300">Information:</h1>
           <ul className="p-0.5 duration-300">
-            <li><a href="" className="underline hover:text-third hover:decoration-third">Leagues</a></li>
-            <li><a href="" className="underline hover:text-third hover:decoration-third">Games Supported</a></li>
-            <li><a href="" className="underline hover:text-third hover:decoration-third">Contact</a></li>
-            <li><a href="" className="underline hover:text-third hover:decoration-third">Sources</a></li>
-            <li><a href="" className="underline hover:text-third hover:decoration-third">Legal</a></li>
+            <li><a href="" className="text-sm md:text-medium underline hover:text-third hover:decoration-third">Leagues</a></li>
+            <li><a href="" className="text-sm md:text-medium underline hover:text-third hover:decoration-third">Games Supported</a></li>
+            <li><a href="" className="text-sm md:text-medium underline hover:text-third hover:decoration-third">Contact</a></li>
+            <li><a href="" className="text-sm md:text-medium underline hover:text-third hover:decoration-third">Sources</a></li>
+            <li><a href="" className="text-sm md:text-medium underline hover:text-third hover:decoration-third">Legal</a></li>
           </ul>
         </div>
       )}

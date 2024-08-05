@@ -5,32 +5,32 @@ export function NavBar() {
     <nav className="flex justify-between items-center w-screen py-1.5 bg-primary">
       <div className="flex items-center">
         <ul className="flex">
-          <li className="text-2xl font-semibold">
-            <a href="/" className="group ml-9 transition duration-300 relative inline-block">
+          <li className="text-lg md:text-2xl font-semibold">
+            <a href="/" className="group ml-5 md:ml-9 transition duration-300 relative inline-block">
               HOME
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-fifth scale-x-0 group-hover:scale-x-100 transition-transform duration-400"></span>
             </a>
           </li>
-          <li className="text-2xl font-semibold">
-            <a href="/events.tsx" className="group ml-14 transition duration-300 relative inline-block">
+          <li className="text-lg md:text-2xl font-semibold">
+            <a href="/events.tsx" className="group ml-8 md:ml-14 transition duration-300 relative inline-block">
               EVENTS
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-fifth scale-x-0 group-hover:scale-x-100 transition-transform duration-400"></span>
             </a>
           </li>
-          <li className="text-2xl font-semibold">
-            <a href="/results.tsx" className="group ml-14 transition duration-300 relative inline-block">
+          <li className="text-lg md:text-2xl font-semibold">
+            <a href="/results.tsx" className="group ml-8 md:ml-14 transition duration-300 relative inline-block">
               RESULTS
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-fifth scale-x-0 group-hover:scale-x-100 transition-transform duration-400"></span>
             </a>
           </li>
-          <li className="text-2xl font-semibold">
-            <a href="/matches.tsx" className="group ml-14 transition duration-300 relative inline-block">
+          <li className="text-lg md:text-2xl font-semibold">
+            <a href="/matches.tsx" className="group ml-8 md:ml-14 transition duration-300 relative inline-block">
               MATCHES
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-fifth scale-x-0 group-hover:scale-x-100 transition-transform duration-400"></span>
             </a>
           </li>
-          <li className="text-2xl font-semibold">
-            <a href="/calendar.tsx" className="group ml-14 transition duration-300 relative inline-block">
+          <li className="hidden sm:block text-lg md:text-2xl font-semibold">
+            <a href="/calendar.tsx" className="group ml-8 md:ml-14 transition duration-300 relative inline-block">
               CALENDAR
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-fifth scale-x-0 group-hover:scale-x-100 transition-transform duration-400"></span>
             </a>
@@ -39,7 +39,7 @@ export function NavBar() {
       </div>
       <div className="flex relative items-center justify-between w-56 mr-6 bg-background duration-300 rounded-full">
         <input 
-          className="w-full py-2.5 pl-6 pr-18 text-wb bg-transparent outline-none text-sm" 
+          className="hidden md:block w-full py-2.5 pl-6 pr-18 text-wb bg-transparent outline-none text-sm" 
           type="text" 
           name="" 
           placeholder="Search for games" 

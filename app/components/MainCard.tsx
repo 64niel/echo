@@ -93,9 +93,9 @@ const getStarCount = (tier: string) => {
         <h1 className='mt-3.5 -mb-1 text-center text-2xl font-semibold'>Top Ongoing/Upcoming Events</h1>
         <div className='flex flex-wrap justify-center mt-3 mb-3'>
           {data.map((tournament: Tournaments) => (
-            <div key={tournament.id} className='flex items-center w-[500px] m-3 mx-8 h-20 p-1.5 bg-carditembackground'>
+            <div key={tournament.id} className='flex items-center w-[90%] xl:w-[42%] m-3 mx-8 h-20 p-1.5 bg-carditembackground'>
               <div className='flex items-center w-28 h-14 m-2 mr-5'>
-                <img src={tournament.league.image_url} alt={tournament.league.slug} className='max-h-14 max-w-28' />
+                <img src={tournament.league.image_url} alt={tournament.league.slug} className='max-h-10 max-w-16 md:max-h-14 md:max-w-28' />
               </div>
               <div className='flex flex-col w-full'>
                 <div className='flex justify-between items-center'>
@@ -123,9 +123,9 @@ const getStarCount = (tier: string) => {
       <h1 className='mt-3.5 -mb-1 text-center text-2xl font-semibold'>Top Ongoing/Upcoming Leagues</h1>
       <div className='flex flex-wrap justify-center mt-3 mb-3'>
         {info.map((league: League) => (
-          <div key={league.id} className='flex items-center w-[500px] m-3 mx-8 h-20 p-1.5 bg-carditembackground'>
+          <div key={league.id} className='flex items-center w-[90%] xl:w-[42%] m-3 mx-8 h-20 p-1.5 bg-carditembackground'>
             <div className='flex items-center w-28 h-14 m-2 mr-5'>
-              <img src={league.image_url ?? ''} alt={league.slug} className='max-h-14 max-w-28' />
+              <img src={league.image_url ?? ''} alt={league.slug} className='max-h-10 max-w-16 md:max-h-14 md:max-w-28' />
             </div>
             <div className='flex flex-col w-full'>
               <div className='flex justify-between items-center'>
