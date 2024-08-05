@@ -5,7 +5,7 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 
 export function LogoImage() {
-    const { theme, systemTheme, resolvedTheme } = useTheme();
+    const { theme, systemTheme } = useTheme();
     const [logoSrc, setLogoSrc] = useState("");
 
     useEffect(() => {
@@ -17,14 +17,14 @@ export function LogoImage() {
     }, [theme, systemTheme]); // Re-run this effect if the theme changes
 
     return (
-        <div className="inline-block h-[120px] md:h-[140px] -mb-2">
+        <div className="inline-block h-[100px] md:h-[135px]">
             <a href="/">
                 {logoSrc && <Image
                     src={logoSrc}
                     alt="Echo Logo"
-                    width={"140"}
-                    height={"140"}
-                    className="" />}
+                    width={"135"}
+                    height={"135"}
+                    className="w-full h-full" />}
             </a>
         </div>
     );

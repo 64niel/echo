@@ -9,7 +9,7 @@ export default function SidePanel() {
     return (
         <div>   
             <LogoImage />
-            <div className="-mt-28 mb-16 md:mb-20">
+            <div className="-mt-24 md:-mt-28 md:mb-16">
                 <div className="flex justify-end">
                     <NotificationButton />
                     <SignInButton />

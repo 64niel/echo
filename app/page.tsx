@@ -7,7 +7,7 @@ import PageHeader from "./components/Header";
 import Home from "./pages/home";
 import SidePanel from "./components/SidePanel";
 
-export default function Base() {
+function Echo() {
   return (
     <div className="flex flex-col min-h-screen text-foreground overflow-hidden bg-background">
       <PageHeader />
@@ -25,5 +25,7 @@ export default function Base() {
     </div>
   );
 }
+
+export default Echo;
 
 
