@@ -20,11 +20,11 @@ export default function SidePanel() {
 
   return (
     <div className={`${isPanelOpen ? 'absolute' : 'relative'} md:relative flex flex-col my-5`}>
-      <div className={`flex items-center ${isPanelOpen ? 'w-32 md:w-44' : 'w-[50px] md:w-[60px]'} pl-2 py-2 mb-24 ${isPanelOpen ? 'border-b-3' : 'border-3'} border-black border-opacity-50 bg-primary z-10`}>
+      <div className={`flex items-center ${isPanelOpen ? 'w-32 md:w-44' : 'w-[40px] sm:w-[50px] md:w-[60px]'} pl-2 py-2 mb-24 ${isPanelOpen ? 'border-b-3' : 'border-3'} border-black border-opacity-50 bg-primary z-10`}>
         {/* Side Panel Close/Open Button */}
         <span onClick={togglePanel} className='hover:cursor-pointer'>
           <svg 
-            className="size-7 md:size-10 fill-objbw duration-300"
+            className="size-5 sm:size-7 md:size-10 fill-objbw duration-300"
             viewBox="0 0 1024 1024" 
             version="1.1" 
             xmlns="http://www.w3.org/2000/svg"

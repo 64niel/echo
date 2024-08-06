@@ -61,7 +61,7 @@ const res = await developersPandascore.get_tournaments({'filter[tier]': 's,a', s
     }
   }));
 
-const es = await developersPandascore.get_leagues({sort: '', page: 1, per_page: 8})
+const es = await developersPandascore.get_leagues({page: 1, per_page: 8})
   const info: League[] = es.data.map((item: any) => ({
     ...item,
     series: item.series.map((series: any) => ({
@@ -96,14 +96,14 @@ const getStarCount = (tier: string) => {
             <div key={tournament.id} className='flex items-center w-[95%] xl:w-[42%] m-2 md:m-3 mx-2 md:mx-8 h-16 md:h-20 p-1.5 bg-carditembackground'>
               <div className='flex items-center w-16 md:w-28 h-10 md:h-14 m-2 mr-5'>
                 <img 
-                src={tournament.league.image_url} 
-                alt={tournament.league.slug} 
-                className='max-h-10 max-w-16 md:max-h-14 md:max-w-28' 
+                  src={tournament.league.image_url || ''} 
+                  alt={tournament.league.slug} 
+                  className='max-h-10 max-w-16 md:max-h-14 md:max-w-28' 
                 />
               </div>
               <div className='flex flex-col w-full'>
                 <div className='flex justify-between items-center'>
-                  <h1 className='absolute sm:relative w-[30%] sm:w-auto mt-6 sm:mt-0 text-sm md:text-lg font-semibold mb-0 md:mb-1'>
+                  <h1 className='absolute sm:relative w-[27%] sm:w-auto mt-6 sm:mt-0 text-sm md:text-lg font-semibold mb-0 md:mb-1'>
                     {tournament.league.name}
                   </h1>
                   <div className='flex ml-auto mr-2 tooltip'>
@@ -137,7 +137,7 @@ const getStarCount = (tier: string) => {
             </div>
             <div className='flex flex-col w-full'>
               <div className='flex justify-between items-center'>
-                <h1 className='absolute sm:relative w-[30%] sm:w-auto mt-6 sm:mt-0 text-sm md:text-lg font-semibold mb-0 md:mb-1'>
+                <h1 className='absolute sm:relative w-[27%] sm:w-auto mt-6 sm:mt-0 text-sm md:text-lg font-semibold mb-0 md:mb-1'>
                   {league.name}
                 </h1>
               </div>
