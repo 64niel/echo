@@ -1,5 +1,5 @@
 // ./api/tournaments.tsx
-import { Tournaments } from '../components/MainCard';
+import { Tournaments } from '../api/Interfaces';
 import developersPandascore from '@api/developers-pandascore';
 
 export default async function TournamentInfo() {

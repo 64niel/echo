@@ -1,5 +1,5 @@
 // ./api/leagues.tsx
-import { League } from '../components/MainCard';
+import { League } from '../api/Interfaces';
 import developersPandascore from '@api/developers-pandascore';
 
 export default async function LeagueInfo() {

@@ -3,50 +3,7 @@ import "./components.css";
 import developersPandascore from '@api/developers-pandascore';
 import TournamentInfo from '../api/tournaments';
 import LeagueInfo from '../api/leagues';
-
-export interface Tournaments {
-  id: number;
-  name: string;
-  begin_at: string | null;
-  end_at: string | null;
-  detailed_stats: boolean;
-  has_bracket: boolean;
-  tier: string;
-  winner_type: string | null;
-  league:{
-    id: number;
-    image_url: string | undefined;
-    name: string | null;
-    slug: string
-  };
-  videogame:{
-    id: number;
-    name: string | null;
-  }
-};
-
-export interface League {
-  id: number;
-  image_url: string | null | undefined;
-  name: string | null;
-  slug: string;
-  series: {
-    begin_at: string;
-    end_at: string;
-    full_name: string;
-    id: number;
-    name: string | null;
-    year: number;
-    winner_id: number | null;
-    winner_type: "Player" | "Team";
-    league_id: number;
-    season: string | null;
-  }[]; // Array
-  videogame: {
-    name: string;
-  }
-};
-
+import { Tournaments, League } from '../api/Interfaces';
 
 export default async function MainCard() {
   const API_KEY = process.env.PANDASCORE_API_KEY;
