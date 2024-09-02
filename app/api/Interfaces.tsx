@@ -1,3 +1,5 @@
+// Interfaces.tsx
+// The interface for the tournament API draw
 export interface Tournaments {
     id: number;
     name: string;
@@ -19,24 +21,25 @@ export interface Tournaments {
     }
   };
   
-  export interface League {
+// The interface for the league API draw
+export interface League {
+  id: number;
+  image_url: string | null | undefined;
+  name: string | null;
+  slug: string;
+  series: {
+    begin_at: string;
+    end_at: string;
+    full_name: string;
     id: number;
-    image_url: string | null | undefined;
     name: string | null;
-    slug: string;
-    series: {
-      begin_at: string;
-      end_at: string;
-      full_name: string;
-      id: number;
-      name: string | null;
-      year: number;
-      winner_id: number | null;
-      winner_type: "Player" | "Team";
-      league_id: number;
-      season: string | null;
-    }[]; // Array
-    videogame: {
-      name: string;
-    }
-  };
+    year: number;
+    winner_id: number | null;
+    winner_type: "Player" | "Team";
+    league_id: number;
+    season: string | null;
+  }[]; // Array
+  videogame: {
+    name: string;
+  }
+};

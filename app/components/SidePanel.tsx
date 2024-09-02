@@ -8,7 +8,7 @@ export default function SidePanel() {
   const [isPanelOpen, setIsPanelOpen] = useState(true);
   const togglePanel = () => setIsPanelOpen(!isPanelOpen);
 
-  const games = ["LoL", "CS2", "Valorant", "R6 Siege", "PUBG", "Dota 2", "Overwatch", "MLBB"];
+  const games = ["LoL", "CS2", "Valorant", "Dota 2", "MLBB", "PUBG", "R6 Siege", "Overwatch", "RL", "EA FC", "CoD", "Wild Rift", "KoG", "Starcraft 2", "Starcraft BW"];
   
   // Function to generate image path based on game name
   function getImagePathForGame(gameName: string): string {
@@ -39,7 +39,7 @@ export default function SidePanel() {
         )}
       </div>
       {isPanelOpen && (
-        <div className={`absolute left-0 ${isPanelOpen ? 'side-panel-full' : ''} w-32 md:w-44 h-[400px] md:h-[460px] p-3 mt-[46px] md:mt-[58px] scrollbar-medium scrollbar-thumb-rounded-full scrollbar-thumb-primary scrollbar-track-gray-400 overflow-y-scroll bg-primary text-white`}>
+        <div className={`absolute left-0 ${isPanelOpen ? 'side-panel-full' : ''} w-32 md:w-44 h-[400px] md:h-[460px] p-2 mt-[46px] md:mt-[58px] scrollbar-medium scrollbar-thumb-rounded-full scrollbar-thumb-primary scrollbar-track-gray-400 overflow-y-scroll bg-primary text-white`}>
           <nav>
             <ul className='text-center'>
               {games.map((game) => (

@@ -1,3 +1,4 @@
+// page.tsx
 require('dotenv').config();
 
 import Image from "next/image";

@@ -5,17 +5,18 @@ import TournamentInfo from '../api/tournaments';
 import LeagueInfo from '../api/leagues';
 import { Tournaments, League } from '../api/Interfaces';
 
-export default async function MainCard() {
-  const API_KEY = process.env.PANDASCORE_API_KEY;
-  if (API_KEY) {
-    developersPandascore.auth(API_KEY);
-  } else {
-    console.error("API key is undefined");
-  }
-  
+export default async function MainCard() {  
   const tournament_data: Tournaments[] = await TournamentInfo();
-
   const league_data: League[] = await LeagueInfo();
+
+  const getImagePathForGame = (gameName: string): string => {
+    // Replace non-alphanumeric characters (except underscores and spaces) with an empty string
+    const clearGameName = gameName.replace(/[^a-zA-Z0-9\s]/g, '');
+    // Replace spaces with underscores and convert to lowercase for the file name
+    const fileName = clearGameName.replace(/\s+/g, '_').toLowerCase();
+    // Return the path using the standardized file name
+    return `/logos/${fileName}_logo.png`;
+  };
 
   const getStarCount = (tier: string) => {
     switch (tier.toLowerCase()) {
@@ -43,7 +44,7 @@ export default async function MainCard() {
             <div key={tournament.id} className='flex items-center w-[95%] xl:w-[44%] m-2 md:m-3 mx-2 md:mx-5 h-16 md:h-20 p-1.5 bg-carditembackground'>
               <div className='flex items-center w-16 md:w-28 h-10 md:h-14 m-2 mr-5'>
                 <img 
-                  src={tournament.league.image_url || ''} 
+                  src={tournament.league.image_url || getImagePathForGame(tournament.videogame.name || '')}
                   alt={tournament.league.slug} 
                   className='max-h-10 max-w-15 md:max-h-14 md:max-w-28' 
                 />
@@ -78,7 +79,7 @@ export default async function MainCard() {
           {league_data.map((league: League) => (
             <div key={league.id} className='flex items-center w-[95%] xl:w-[42%] m-2 md:m-3 mx-2 md:mx-8 h-16 md:h-20 p-1.5 bg-carditembackground'>
               <div className='flex items-center w-16 md:w-28 h-10 md:h-14 m-2 mr-5'>
-                <img src={league.image_url ?? ''} 
+                <img src={league.image_url || getImagePathForGame(league.videogame.name || '')} 
                 alt={league.slug} 
                 className='max-h-10 max-w-15 md:max-h-14 md:max-w-28' />
               </div>
