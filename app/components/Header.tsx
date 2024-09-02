@@ -1,9 +1,9 @@
-import { ThemeSwitcher } from "./ThemeSwitcher";
-import { NotificationButton } from "./NotificationButton";
-import { SignInButton } from "./SignIn";
-import { LogoImage } from "./Logo";
-import { NavBar } from "./NavBar";
-import { CalendarButton } from "./CalendarButton";
+import { ThemeSwitcher } from "./components/ThemeSwitcher";
+import { NotificationButton } from "./components/NotificationButton";
+import { SignInButton } from "./components/SignIn";
+import { LogoImage } from "./components/Logo";
+import { NavBar } from "./components/NavBar";
+import { CalendarButton } from "./components/CalendarButton";
 
 export default function SidePanel() {
     return (

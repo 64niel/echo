@@ -1,9 +1,7 @@
 // page.tsx
 require('dotenv').config();
 
-import Image from "next/image";
 import React, { useState } from 'react';
-import ReactDOM from "react-dom/client";
 import PageHeader from "./components/Header";
 import Home from "./pages/home";
 import SidePanel from "./components/SidePanel";

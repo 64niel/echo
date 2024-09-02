@@ -1,4 +1,5 @@
 // Interfaces.tsx
+
 // The interface for the tournament API draw
 export interface Tournaments {
     id: number;
@@ -28,8 +29,8 @@ export interface League {
   name: string | null;
   slug: string;
   series: {
-    begin_at: string;
-    end_at: string;
+    begin_at: string | null;
+    end_at: string | null;
     full_name: string;
     id: number;
     name: string | null;
