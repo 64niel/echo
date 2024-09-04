@@ -44,3 +44,22 @@ export interface League {
     name: string;
   }
 };
+
+export interface Matches {
+  begin_at: string | null;
+  end_at: string | null;
+  league: {
+    image_url: string | null;
+    name: string | null;
+  }
+  name: string | null;
+  tournament: {
+    name: string | null;
+    tier: string;
+  }
+  videogame: {
+    name: string | null;
+  }
+  tournament_id: string | null;
+  scheduled_at: string | number;
+}
