@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import PageHeader from "./components/Header";
 import Home from "./pages/home";
 import SidePanel from "./components/SidePanel";
+import Events from './pages/events';
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -22,6 +23,9 @@ function Echo() {
         <div className="flex-grow flex items-center justify-center">
           <Home />
         </div>
+        {/* <div className="flex-grow flex items-center justify-center">
+          <Events />
+        </div> */}
       </div>
       {/* Footer for the page */}
       <footer className="py-3 mt-10 bg-primary">

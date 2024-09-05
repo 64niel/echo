@@ -1,5 +1,5 @@
 // leagues.tsx
-import { League } from '../api/Interfaces';
+import { League } from './Interfaces';
 import developersPandascore from '@api/developers-pandascore';
 
 export default async function LeagueInfo() {
@@ -11,7 +11,7 @@ export default async function LeagueInfo() {
   }
 
   // Getting the league data
-  const res = await developersPandascore.get_leagues({ page: 1, per_page: 50});
+  const res = await developersPandascore.get_leagues({ page: 1, per_page: 100});
   const data: League[] = res.data.map((item: any) => ({
     ...item,
     series: item.series.map((series: any) => ({

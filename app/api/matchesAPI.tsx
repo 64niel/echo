@@ -1,7 +1,7 @@
 // matches.tsx
-import lolMatchesInfo from '../api/games/lolMatches';
-import dota2MatchesInfo from '../api/games/dota2Matches';
-import csMatchesInfo from '../api/games/csMatches';
+import lolMatchesInfo from './games/lolMatches';
+import dota2MatchesInfo from './games/dota2Matches';
+import csMatchesInfo from './games/csMatches';
 import codMatchesInfo from './games/codMatches';
 import eafcMatchesInfo from './games/eafcMatches';
 import mlbbMatchesInfo from './games/mlbbMatches';
@@ -50,24 +50,6 @@ export default async function allMatchesInfo() {
     const dateB = new Date(b.scheduled_at || '').getTime();
     return dateA - dateB;
   });
-
-  // Limit the number of matches from each game
-  const limitMatches = (matches: any[], limit: number) => {
-    const gameMap: { [key: string]: number } = {};
-    return matches.filter((match) => {
-      const gameName = match.videogame.name;
-      if (!gameMap[gameName]) {
-        gameMap[gameName] = 0;
-      }
-      if (gameMap[gameName] < limit) {
-        gameMap[gameName]++;
-        return true;
-      }
-      return false;
-    });
-  };
-
-  const limitedMatches = limitMatches(sortedMatches, 4); // Limit to 4 matches per game
 
   return sortedMatches;
 }
