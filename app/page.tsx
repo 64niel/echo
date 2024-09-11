@@ -1,7 +1,7 @@
 // page.tsx
 require('dotenv').config();
 
-import React, { useState } from 'react';
+import React from 'react';
 import PageHeader from "./components/Header";
 import Home from "./pages/home";
 import SidePanel from "./components/SidePanel";

@@ -1,13 +1,10 @@
 // dota2Matches.tsx
 import { Matches } from '../Interfaces';
-import developersPandascore from '@api/developers-pandascore';
 
 export default async function dota2MatchesInfo() {
   // API key checking
   const API_KEY = process.env.PANDASCORE_API_KEY;
-  if (API_KEY) {
-    developersPandascore.auth(API_KEY);
-  } else {
+  if (!API_KEY) {
     console.error("API key is undefined");
   }
 

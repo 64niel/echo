@@ -1,13 +1,10 @@
 // rlMatches.tsx
 import { Matches } from '../Interfaces';
-import developersPandascore from '@api/developers-pandascore';
 
 export default async function rlMatchesInfo() {
   // API key checking
   const API_KEY = process.env.PANDASCORE_API_KEY;
-  if (API_KEY) {
-    developersPandascore.auth(API_KEY);
-  } else {
+  if (!API_KEY) {
     console.error("API key is undefined");
   }
 
