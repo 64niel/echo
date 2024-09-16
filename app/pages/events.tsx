@@ -1,4 +1,4 @@
-// Events.tsx
+// events.tsx
 import React from 'react';
 import TournamentInfo from '../api/tournamentsAPI';
 import TournamentsDisplay from '../components/components/TournamentsDisplay';

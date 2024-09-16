@@ -4,10 +4,12 @@
 import "../globals.css";
 import "./components.css";
 import { useState } from 'react';
+import useHandleNavigation from "./components/handleNav";
 
 export default function SidePanel() {
   const [isPanelOpen, setIsPanelOpen] = useState(true);
   const togglePanel = () => setIsPanelOpen(!isPanelOpen);
+  const handleNavigation = useHandleNavigation();
 
   const games = ["LoL", "CS2", "Valorant", "Dota 2", "MLBB", "PUBG", "R6 Siege", "Overwatch", "RL", "EA FC", "CoD", "Wild Rift", "KoG", "Starcraft 2", "Starcraft BW"];
   
@@ -62,13 +64,33 @@ export default function SidePanel() {
       {isPanelOpen && (
         <div className="h-auto w-32 md:w-44 px-3 py-2 mt-80 md:mt-96 bg-primary text-center text-objbw z-10">
           <h1 className="text-medium md:text-xl pb-1 duration-300">Information:</h1>
-          <ul className="p-0.5 duration-300">
-            <li><a href="" className="text-sm md:text-medium underline hover:text-third hover:decoration-third">Leagues</a></li>
-            <li><a href="" className="text-sm md:text-medium underline hover:text-third hover:decoration-third">Games Supported</a></li>
-            <li><a href="" className="text-sm md:text-medium underline hover:text-third hover:decoration-third">Contact</a></li>
-            <li><a href="" className="text-sm md:text-medium underline hover:text-third hover:decoration-third">Sources</a></li>
-            <li><a href="" className="text-sm md:text-medium underline hover:text-third hover:decoration-third">Legal</a></li>
-          </ul>
+      <ul className="p-0.5 duration-300">
+        <li>
+          <button onClick={() => handleNavigation('/?page=status')} className="text-sm md:text-medium underline hover:text-third hover:decoration-third">
+            Status
+          </button>
+        </li>
+        <li>
+          <button onClick={() => handleNavigation('/?page=gamessupported')} className="text-sm md:text-medium underline hover:text-third hover:decoration-third">
+            Games Supported
+          </button>
+        </li>
+        <li>
+          <button onClick={() => handleNavigation('/?page=contact')} className="text-sm md:text-medium underline hover:text-third hover:decoration-third">
+            Contact
+          </button>
+        </li>
+        <li>
+          <button onClick={() => handleNavigation('/?page=sources')} className="text-sm md:text-medium underline hover:text-third hover:decoration-third">
+            Sources
+          </button>
+        </li>
+        <li>
+          <button onClick={() => handleNavigation('/?page=legal')} className="text-sm md:text-medium underline hover:text-third hover:decoration-third">
+            Legal
+          </button>
+        </li>
+      </ul>
         </div>
       )}
     </div>

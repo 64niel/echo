@@ -21,7 +21,7 @@ export default function MatchesDisplay({ matchData }: MatchesDisplayProps) {
           </div>
           <div className='flex flex-col w-full'>
             <div className='flex justify-between items-center'>
-              <h1 className='absolute sm:relative w-[27%] sm:w-auto mt-3 sm:mt-0 text-[15px] md:text-lg font-semibold mb-0 md:mb-1 text-nowrap overflow-hidden text-ellipsis'>
+              <h1 className='absolute sm:relative w-[27%] sm:w-48 xl:w-52 mt-3 sm:mt-0 text-[15px] md:text-lg font-semibold mb-0 md:mb-1 text-nowrap overflow-hidden text-ellipsis'>
                 {match.name}
               </h1>
               <div className='flex ml-auto mr-2 tooltip'>

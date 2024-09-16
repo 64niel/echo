@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@api/developers-pandascore": "file:.api/apis/developers-pandascore",
-    "@nextui-org/react": "^2.4.2",
+    "@nextui-org/react": "^2.4.8",
     "@types/express": "^4.17.21",
     "axios": "^1.7.7",
     "dotenv": "^16.4.5",

@@ -1,39 +1,46 @@
+'use client'
+// NavBar.tsx
+
+import useHandleNavigation from './handleNav';
 import "../components.css";
 
+// The navigation bar
 export function NavBar() {
+  const handleNavigation = useHandleNavigation(); 
+
   return (
     <nav className="flex justify-between items-center w-screen py-1.5 bg-primary">
       <div className="flex items-center">
         <ul className="flex">
           <li className="text-[15px] sm:text-lg md:text-2xl font-semibold">
-            <a href="/" className="group ml-5 md:ml-9 transition duration-300 relative inline-block">
+            <button onClick={() => handleNavigation('/')} className="group ml-5 md:ml-9 transition duration-300 relative inline-block">
               HOME
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-fifth scale-x-0 group-hover:scale-x-100 transition-transform duration-400"></span>
-            </a>
+            </button>
           </li>
           <li className="text-[15px] sm:text-lg md:text-2xl font-semibold">
-            <a href="/events.tsx" className="group ml-8 md:ml-14 transition duration-300 relative inline-block">
+            <button onClick={() => handleNavigation('/?page=events')} className="group ml-8 md:ml-14 transition duration-300 relative inline-block">
               EVENTS
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-fifth scale-x-0 group-hover:scale-x-100 transition-transform duration-400"></span>
-            </a>
+            </button>
           </li>
           <li className="text-[15px] sm:text-lg md:text-2xl font-semibold">
-            <a href="/results.tsx" className="group ml-8 md:ml-14 transition duration-300 relative inline-block">
+            <button onClick={() => handleNavigation('/?page=results')} className="group ml-8 md:ml-14 transition duration-300 relative inline-block">
               RESULTS
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-fifth scale-x-0 group-hover:scale-x-100 transition-transform duration-400"></span>
-            </a>
+            </button>
           </li>
           <li className="text-[15px] sm:text-lg md:text-2xl font-semibold">
-            <a href="/matches.tsx" className="group ml-8 md:ml-14 transition duration-300 relative inline-block">
+            <button onClick={() => handleNavigation('/?page=matches')} className="group ml-8 md:ml-14 transition duration-300 relative inline-block">
               MATCHES
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-fifth scale-x-0 group-hover:scale-x-100 transition-transform duration-400"></span>
-            </a>
+            </button>
           </li>
           <li className="hidden lg:block text-[15px] sm:text-lg md:text-2xl font-semibold">
-            <a href="/calendar.tsx" className="group ml-8 md:ml-14 transition duration-300 relative inline-block">
+            <button onClick={() => handleNavigation('/?page=calendar')} className="group ml-8 md:ml-14 transition duration-300 relative inline-block">
               CALENDAR
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-fifth scale-x-0 group-hover:scale-x-100 transition-transform duration-400"></span>
-            </a>
+            </button>
           </li>
         </ul>
       </div>
