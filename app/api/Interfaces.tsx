@@ -62,4 +62,19 @@ export interface Matches {
   }
   tournament_id: string | null;
   scheduled_at: string | number;
+  winner: {
+    image_url: string | null;
+    name: string;
+    slug: string | null;
+  }
+  opponents: {
+    id: number;
+    image_url: string | null;
+    name: string | null;
+  }[];
+  results: {
+    score: number;
+    team_id: number;
+  }[];
+  status: string; 
 }
