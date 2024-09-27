@@ -67,7 +67,7 @@ const Echo = ({ searchParams }: { searchParams: SearchParams }) => {
 
   // Main Echo app function
   return (
-    <LoadingProvider> 
+    <LoadingProvider>
       <div className="flex flex-col min-h-screen text-foreground overflow-hidden bg-background">
         {/* Header for the page */}
         <PageHeader />
@@ -86,7 +86,7 @@ const Echo = ({ searchParams }: { searchParams: SearchParams }) => {
           </p>
         </footer>
       </div>
-    </LoadingProvider> 
+    </LoadingProvider>
   );
 };
 

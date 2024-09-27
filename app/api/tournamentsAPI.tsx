@@ -12,7 +12,7 @@ export default async function TournamentInfo() {
   }
 
   // Getting the tournament data
-  const res = await developersPandascore.get_tournaments({sort: ['-begin_at'], page: 1, per_page: 100})
+  const res = await developersPandascore.get_tournaments({sort: '-begin_at', page: '1', per_page: '48'})
   const data: Tournaments[] = res.data.map((item: any) => ({
     ...item,
     league: {

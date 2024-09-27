@@ -2,7 +2,7 @@
 
 // Defines the correlation between stars and tier
 export const getStarCount = (tier: string) => {
-    switch (tier.toLowerCase()) {
+    switch (tier) {
         case 's':
             return 5;
         case 'a':
@@ -13,6 +13,8 @@ export const getStarCount = (tier: string) => {
             return 2;
         case 'd':
             return 1;
+        case 'Unranked':
+            return 0;
         default:
             return 0;
     }

@@ -14,6 +14,7 @@ const filterMatches = (matches: Matches[]): Matches[] => {
   const startOfDay = new Date(now.setHours(0, 0, 0, 0));
   const endOfDay = new Date(now.setHours(23, 59, 59, 999));
   
+  // Order in which tiers are displayed
   const tierOrder = ['s', 'a', 'b', 'c', 'd'];
 
   return matches

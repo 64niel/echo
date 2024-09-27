@@ -64,10 +64,11 @@ export interface Matches {
   scheduled_at: string | number;
   winner: {
     image_url: string | null;
-    name: string;
+    name: string | null;
     slug: string | null;
   }
   opponents: {
+    opponent: any;
     id: number;
     image_url: string | null;
     name: string | null;

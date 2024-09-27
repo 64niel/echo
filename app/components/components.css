@@ -84,7 +84,7 @@ opacity: 1;
 .tooltip:hover .tooltiptext {
   visibility: visible;
   transition-delay: 0.3s;
-  opacity: 90%;
+  opacity: 100%;
 }
 
 @media (max-width: 768px) {

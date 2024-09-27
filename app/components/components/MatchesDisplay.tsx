@@ -13,7 +13,7 @@ export default function MatchesDisplay({ matchData }: MatchesDisplayProps) {
     // Display today's matches
     <div className='flex flex-wrap justify-center mt-2 md:mt-3 mb-2 mb:mb-3'>
       {matchData.map((match: Matches) => (
-        <div key={match.name} className='flex items-center w-[95%] xl:w-[42%] m-2 md:m-3 mx-2 md:mx-8 h-16 md:h-20 p-1.5 bg-carditembackground tooltip'>
+        <div key={match.name} className='flex items-center w-[95%] xl:w-[44%] m-2 md:m-3 mx-2 md:mx-8 h-16 md:h-20 p-1.5 bg-carditembackground tooltip'>
           <div className='flex items-center w-16 md:w-28 h-10 md:h-14 m-2 mr-5'>
             <img src={match.league.image_url || getImagePathForGame(match.videogame.name || '')} 
             alt={match.league.name || ''} 
@@ -21,10 +21,28 @@ export default function MatchesDisplay({ matchData }: MatchesDisplayProps) {
           </div>
           <div className='flex flex-col w-full'>
             <div className='flex justify-between items-center'>
-              <h1 className='absolute sm:relative w-[27%] sm:w-48 xl:w-52 mt-3 sm:mt-0 text-[15px] md:text-lg font-semibold mb-0 md:mb-1 text-nowrap overflow-hidden text-ellipsis'>
-                {match.name}
-              </h1>
-              <span className='tooltiptext -ml-[85%] sm:-ml-[80%] mt-10 sm:mt-12'>Tournament: {match.league.name}</span>
+              {match.status === 'finished' ? (
+                <>
+                  <div className='absolute sm:relative w-[27%] sm:w-48 xl:w-52 mt-3 sm:mt-0 text-[15px] md:text-lg font-semibold mb-0 md:mb-1 text-nowrap overflow-hidden text-ellipsis'>
+                    {match.results.map((result, index) => {
+                      const team = match.opponents.find(opponent => opponent.opponent.id === result.team_id);
+                      const teamName = team ? team.opponent.name : result.team_id;
+                      return (
+                        <span key={index}>{teamName}: {result.score} </span>
+                      );
+                    })}
+                  </div>
+                  <span className='tooltiptext -ml-[85%] sm:-ml-[85%] mt-4 sm:mt-4'>Winner: {match.winner?.name}</span>
+                  <span className='tooltiptext -ml-[85%] sm:-ml-[85%] mt-10 sm:mt-14'>Tournament: {match.league.name}</span>
+                </>
+              ) : (
+                <>
+                  <h1 className='absolute sm:relative w-[27%] sm:w-48 xl:w-52 mt-3 sm:mt-0 text-[15px] md:text-lg font-semibold mb-0 md:mb-1 text-nowrap overflow-hidden text-ellipsis'>
+                    {match.name}
+                  </h1>
+                  <span className='tooltiptext -ml-[85%] sm:-ml-[80%] mt-12 sm:mt-13'>Tournament: {match.league.name}</span>
+                </>
+              )}
               <div className='flex ml-auto mr-2 tooltip'>
                 {/* Star display */}
                 {[...Array(5)].map((_, index) => (

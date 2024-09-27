@@ -8,7 +8,7 @@ export default async function csMatchesInfo() {
     console.error("API key is undefined");
   }
 
-  const url = "https://api.pandascore.co/csgo/matches?sort=-scheduled_at&token=" + API_KEY
+  const url = "https://api.pandascore.co/csgo/matches?sort=-modified_at&%27filter[detailed_stats]%27=%27true%27&per_page=%27100%27&token=" + API_KEY
 
   // Getting the tournament data
   const res = await fetch(url);
