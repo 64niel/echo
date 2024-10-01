@@ -1,5 +1,6 @@
 // MainCard.tsx
 import "./components.css";
+import React from "react";
 import MatchesDisplay from "./components/MatchesDisplay";
 import TournamentsDisplay from "./components/TournamentsDisplay";
 import LeaguesDisplay from "./components/LeaguesDisplay";

@@ -25,13 +25,12 @@ interface SearchParams {
 const Echo = ({ searchParams }: { searchParams: SearchParams }) => {
   const page = searchParams.page || 'home';
 
-  if (!['home', 'events', 'results', 'matches', 'calendar', 'gamessupported', 'status', 'contact', 'sources', 'legal'].includes(page)) {
-    redirect('/');
-  }
-
   let PageComponent;
 
   switch (page) {
+    case 'home':
+      PageComponent = Home;
+      break;
     case 'events':
       PageComponent = Events;
       break;
@@ -59,9 +58,8 @@ const Echo = ({ searchParams }: { searchParams: SearchParams }) => {
     case 'legal':
       PageComponent = Legal;
       break;
-    case 'home':
     default:
-      PageComponent = Home;
+      PageComponent = notFound;
       break;
   }
 
