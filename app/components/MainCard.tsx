@@ -42,11 +42,17 @@ const filterTournaments = (tournaments: Tournaments[]): Tournaments[] => {
   return tournaments
     .filter((tournament) => {
       const tier = tournament.tier?.toLowerCase();
-      const beginDate = tournament.begin_at ? new Date(tournament.begin_at) : null;
-      const endDate = tournament.end_at ? new Date(tournament.end_at) : null;
+      // COnvert tournament dates given by API to local times
+      const beginDate = tournament.begin_at ? new Date(tournament.begin_at).toLocaleString() : null;
+      const endDate = tournament.end_at ? new Date(tournament.end_at).toLocaleString() : null;
+
+      // Convert currentDate to local time for comparison
+      const localCurrentDate = currentDate.toLocaleString();
 
       // Check if the tournament is A or S tier and if it is ongoing or in the future
-      return (tier === 'a' || tier === 's') && (beginDate && beginDate >= currentDate || endDate && endDate >= currentDate);
+      return (tier === 'a' || tier === 's') && 
+             (beginDate && new Date(beginDate) >= new Date(localCurrentDate) || 
+              endDate && new Date(endDate) >= new Date(localCurrentDate));
     })
     .sort((a, b) => {
       const tierA = a.tier.toLowerCase();
@@ -56,15 +62,22 @@ const filterTournaments = (tournaments: Tournaments[]): Tournaments[] => {
 };
 
 // The main card
-export default async function MainCard() { 
+const MainCard: React.FC<{ searchParams?: { game?: string } }> = async ({ searchParams = {} }) => {
+  const game = searchParams.game;
   // Data fetched from API calls
   const init_matchesData: Matches[] = await allMatchesInfo(); // Fetch matches data 
   const init_tournamentData: Tournaments[] = await TournamentInfo(); // Fetch tournament data
-  const init_leagueData: League[] = await LeagueInfo(); // Fetch league data
+  let init_leagueData: League[] = await LeagueInfo(); // Fetch league data
 
   // Apply filters
-  const todayMatches = filterMatches(init_matchesData);
-  const filteredTournaments = filterTournaments(init_tournamentData);
+  let todayMatches = filterMatches(init_matchesData);
+  let filteredTournaments = filterTournaments(init_tournamentData);
+
+  if (game) {
+    init_leagueData = init_leagueData.filter(league => league.videogame.name?.toLocaleLowerCase() === game.toLocaleLowerCase());
+    todayMatches = todayMatches.filter(match => match.videogame.name?.toLocaleLowerCase() === game.toLocaleLowerCase());
+    filteredTournaments = filteredTournaments.filter(tournament => tournament.videogame.name?.toLocaleLowerCase() === game.toLocaleLowerCase());
+  }
 
   // Limits the number of individual events that can be shown on a card
   const matchData = todayMatches.slice(0, 14);
@@ -93,4 +106,4 @@ export default async function MainCard() {
   );
 };
 
-
+export default MainCard;

@@ -7,12 +7,21 @@ const useHandleNavigation = () => {
   const router = useRouter();
   const { setIsLoading } = useLoading();
 
-  const handleNavigation = (path: string) => {
+  const handleNavigation = (path: string, query?: Record<string, string>) => {
     setIsLoading(true);
-    router.push(path);
+
+    // Manually construct the URL string
+    let url = path;
+    if (query) {
+      const queryString = new URLSearchParams(query).toString();
+      url += `?${queryString}`;
+    }
+
+    router.push(url);
     setTimeout(() => {
-      window.location.reload(); // Reload the page after navigation
-    }, 1000);
+      setIsLoading(false);
+      window.location.reload();
+    }, 1200);
   };
 
   return handleNavigation;

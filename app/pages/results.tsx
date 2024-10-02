@@ -16,11 +16,16 @@ const filterMatches = (matches: Matches[]): Matches[] => {
 };
 
 // Results page
-const Results: React.FC = async () => {
+const Results: React.FC<{ searchParams: { game?: string } }> = async ({ searchParams }) => {
+    const game = searchParams.game;
     // Data fetched from API calls
     const init_matchesData: Matches[] = await allMatchesInfo(); // Fetch matches data
 
-    const matchData = filterMatches(init_matchesData);
+    let matchData = filterMatches(init_matchesData);
+
+    if (game) {
+        matchData = matchData.filter(match => match.videogame.name === game);
+    }
 
     return (
         <div className='w-full h-full mx-3 md:mx-6 mt-10 bg-pagebackground'>

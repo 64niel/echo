@@ -2,7 +2,6 @@
 require('dotenv').config();
 
 import React from 'react';
-import { redirect } from 'next/navigation';
 import PageHeader from "./components/Header";
 import SidePanel from "./components/SidePanel";
 import Home from "./pages/home";
@@ -20,6 +19,7 @@ import { LoadingProvider } from './components/components/loadingContent';
 
 interface SearchParams {
   page?: string;
+  game?: string;
 }
 
 const Echo = ({ searchParams }: { searchParams: SearchParams }) => {
@@ -29,7 +29,7 @@ const Echo = ({ searchParams }: { searchParams: SearchParams }) => {
 
   switch (page) {
     case 'home':
-      PageComponent = Home;
+      PageComponent = (props: React.JSX.IntrinsicAttributes) => <Home {...props} searchParams={searchParams} />;
       break;
     case 'events':
       PageComponent = Events;
@@ -74,7 +74,7 @@ const Echo = ({ searchParams }: { searchParams: SearchParams }) => {
           <SidePanel />
           {/* Main content section with all the pages */}
           <div className="flex-grow flex items-center justify-center">
-            <PageComponent />
+            <PageComponent searchParams={searchParams} />
           </div>
         </div>
         {/* Footer for the page */}

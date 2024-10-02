@@ -2,7 +2,7 @@
 import { Tournaments } from '../api/Interfaces';
 import developersPandascore from '@api/developers-pandascore';
 
-export default async function TournamentInfo() {
+export default async function TournamentInfo(game?: string) {
   // API key checking
   const API_KEY = process.env.PANDASCORE_API_KEY;
   if (API_KEY) {
@@ -22,11 +22,15 @@ export default async function TournamentInfo() {
   }));
 
   // Sort the filtered data by begin date in ascending order
-  const sortedData = data.sort((a, b) => {
+  let sortedData = data.sort((a, b) => {
     const dateA = a.begin_at ? new Date(a.begin_at) : new Date();
     const dateB = b.begin_at ? new Date(b.begin_at) : new Date();
     return dateA.getTime() - dateB.getTime();
   });
+
+  if (game) {
+    sortedData = sortedData.filter(tournament => tournament.videogame.name === game);
+  }
 
   return sortedData; // Return the filtered and sorted data
 };

@@ -11,7 +11,7 @@ export default function SidePanel() {
   const togglePanel = () => setIsPanelOpen(!isPanelOpen);
   const handleNavigation = useHandleNavigation();
 
-  const games = ["LoL", "CS2", "Valorant", "Dota 2", "MLBB", "PUBG", "R6 Siege", "Overwatch", "RL", "EA FC", "CoD", "Wild Rift", "KoG", "Starcraft 2", "Starcraft BW"];
+  const games = ["LoL", "CS2", "Valorant", "Dota 2", "MLBB", "PUBG", "R6 Siege", "Overwatch", "RL", "EA FC", "CoD", "Wild Rift", "KoG", "StarCraft 2", "Starcraft BW"];
   
   // Function to generate image path based on game name
   function getImagePathForGame(gameName: string): string {
@@ -20,6 +20,12 @@ export default function SidePanel() {
     // Return the path using the standardized file name
     return `/images/${fileName}_sb.png`;
   }
+
+  const handleGameClick = (game: string) => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const currentPage = urlParams.get('page') || 'home';
+    handleNavigation('/', { page: currentPage, game });
+  };
 
   return (
     <div className={`${isPanelOpen ? 'absolute' : 'relative'} md:relative flex flex-col my-5 -mr-2`}>
@@ -48,6 +54,7 @@ export default function SidePanel() {
               {games.map((game) => (
                 <li className="game-item mb-2 p-3 text-l md:text-2xl font-semibold bg-secondary hover:cursor-pointer" 
                   key={game}
+                  onClick={() => handleGameClick(game)}
                 >
                   <div 
                     className="game-item-hover"

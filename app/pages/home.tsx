@@ -1,11 +1,15 @@
 import React from 'react';
 import MainCard from '../components/MainCard';
 
-const Home: React.FC = () => {
+interface HomeProps {
+    searchParams: { game?: string };
+}
+
+const Home: React.FC<HomeProps> = ({ searchParams }) => {
     return (
-        <div className='w-full h-full mx-3 md:mx-6 mt-10 bg-pagebackground'>
-            <MainCard />
-        </div>
+      <div className='w-full h-full mx-3 md:mx-6 mt-10 bg-pagebackground'>
+        <MainCard searchParams={searchParams} />
+      </div>
     );
 };
 

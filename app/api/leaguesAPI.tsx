@@ -11,7 +11,7 @@ export default async function LeagueInfo() {
   }
 
   // Getting the league data
-  const res = await developersPandascore.get_leagues({ page: 1, per_page: 100});
+  const res = await developersPandascore.get_leagues({ page: 1, per_page: 48});
   const data: League[] = res.data.map((item: any) => ({
     ...item,
     series: item.series.map((series: any) => ({
