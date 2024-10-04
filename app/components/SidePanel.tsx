@@ -46,13 +46,13 @@ export default function SidePanel() {
     const apiGameName = gameNameMapping[game] || game; // Use the mapped value or fallback to the original name
     handleNavigation('/', { page: currentPage, game: apiGameName });
     setSelectedGame(game || null); // Set the selected game or null if no game is selected
+    localStorage.setItem('selectedGame', game || ''); // Save the selected game to local storage
   };
 
   useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const game = urlParams.get('game');
-    if (game) {
-      setSelectedGame(game);
+    const savedGame = localStorage.getItem('selectedGame');
+    if (savedGame) {
+      setSelectedGame(savedGame);
     }
   }, []);
 
@@ -92,11 +92,11 @@ export default function SidePanel() {
             )}
             <ul className='text-center'>
               {games.map((game) => (
-                <li className="game-item mb-2 p-3 text-l md:text-2xl font-semibold bg-secondary hover:cursor-pointer" 
+                <li className={`game-item mb-2 p-3 text-l md:text-2xl font-semibold bg-secondary hover:cursor-pointer ${selectedGame === game ? 'bg-third border-2 border-solid border-black': ''}`} 
                   key={game}
                   onClick={() => handleGameClick(game)}
                 >
-                  <div 
+                  <div
                     className="game-item-hover"
                     style={{ backgroundImage: `url(${getImagePathForGame(game)})` }}
                   >

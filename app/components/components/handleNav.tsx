@@ -7,10 +7,11 @@ const useHandleNavigation = () => {
   const router = useRouter();
   const { setIsLoading } = useLoading();
 
+  // Actual navigation handling
   const handleNavigation = (path: string, query?: Record<string, string>) => {
     setIsLoading(true);
 
-    // Manually construct the URL string
+    // Construct URL string
     let url = path;
     if (query) {
       const queryString = new URLSearchParams(query).toString();

@@ -1,7 +1,5 @@
-'use client'
 // contact.tsx
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Legal: React.FC = () => {
     return (

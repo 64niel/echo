@@ -15,6 +15,8 @@ import Legal from './pages/pages/legal';
 import Status from './pages/pages/status';
 import Sources from './pages/pages/sources';
 import Contact from './pages/pages/contact';
+import SignIn from './pages/pages/signin';
+import Notifications from './pages/notifications';
 import notFound from './pages/notfound';
 import { LoadingProvider } from './components/components/loadingContent';
 
@@ -58,6 +60,12 @@ const Echo = ({ searchParams }: { searchParams: SearchParams }) => {
       break;
     case 'legal':
       PageComponent = Legal;
+      break;
+    case 'signin':
+      PageComponent = SignIn;
+      break;
+    case 'notifications':
+      PageComponent = Notifications;
       break;
     default:
       PageComponent = notFound;
