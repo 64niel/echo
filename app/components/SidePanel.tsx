@@ -3,16 +3,35 @@
 // SidePanel.tsx
 import "../globals.css";
 import "./components.css";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import useHandleNavigation from "./components/handleNav";
 
 export default function SidePanel() {
   const [isPanelOpen, setIsPanelOpen] = useState(true);
+  const [selectedGame, setSelectedGame] = useState<string | null>(null);
   const togglePanel = () => setIsPanelOpen(!isPanelOpen);
   const handleNavigation = useHandleNavigation();
 
   const games = ["LoL", "CS2", "Valorant", "Dota 2", "MLBB", "PUBG", "R6 Siege", "Overwatch", "RL", "EA FC", "CoD", "Wild Rift", "KoG", "StarCraft 2", "Starcraft BW"];
   
+  const gameNameMapping: { [key: string]: string } = {
+    "LoL": "lol",
+    "CS2": "counter-strike",
+    "Valorant": "valorant",
+    "Dota 2": "dota 2",
+    "MLBB": "mobile legends: bang bang",
+    "PUBG": "pubg",
+    "R6 Siege": "rainbow 6 siege",
+    "Overwatch": "overwatch",
+    "RL": "rocket league",
+    "EA FC": "ea sports fc",
+    "CoD": "call of duty",
+    "Wild Rift": "lol wild rift",
+    "KoG": "king of glory",
+    "StarCraft 2": "starcraft 2",
+    "Starcraft BW": "starcraft brood war"
+  };
+
   // Function to generate image path based on game name
   function getImagePathForGame(gameName: string): string {
     // Replace spaces with underscores and convert to lowercase for the file name
@@ -24,12 +43,22 @@ export default function SidePanel() {
   const handleGameClick = (game: string) => {
     const urlParams = new URLSearchParams(window.location.search);
     const currentPage = urlParams.get('page') || 'home';
-    handleNavigation('/', { page: currentPage, game });
+    const apiGameName = gameNameMapping[game] || game; // Use the mapped value or fallback to the original name
+    handleNavigation('/', { page: currentPage, game: apiGameName });
+    setSelectedGame(game || null); // Set the selected game or null if no game is selected
   };
 
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const game = urlParams.get('game');
+    if (game) {
+      setSelectedGame(game);
+    }
+  }, []);
+
   return (
-    <div className={`${isPanelOpen ? 'absolute' : 'relative'} md:relative flex flex-col my-5 -mr-2`}>
-      <div className={`flex items-center ${isPanelOpen ? 'w-32 md:w-44' : 'w-[40px] sm:w-[50px] md:w-[60px]'} pl-2 py-2 mb-24 ${isPanelOpen ? 'border-b-3' : 'border-0'} border-black border-opacity-50 ${isPanelOpen ? 'bg-primary' : 'bg-background'} z-10`}>
+    <div className={`${isPanelOpen ? 'absolute' : 'relative'} md:relative flex flex-col my-5 -mr-2 z-20`}>
+      <div className={`flex items-center ${isPanelOpen ? 'w-32 md:w-44' : 'w-[40px] sm:w-[50px] md:w-[60px]'} pl-2 py-2 mb-24 ${isPanelOpen ? 'border-b-3' : 'border-0'} border-black border-opacity-50 ${isPanelOpen ? 'bg-primary' : 'bg-background'}`}>
         {/* Side Panel Close/Open Button */}
         <span onClick={togglePanel} className='hover:cursor-pointer'>
           <svg 
@@ -42,14 +71,25 @@ export default function SidePanel() {
           </svg>
         </span> 
         {isPanelOpen && (
-          <div className="pl-2">
-            <h2 className="text-l md:text-2xl font-semibold duration-300">GAMES</h2>
+          <div>
+            <div className="pl-2">
+              <h2 className="text-l md:text-2xl font-semibold duration-300">FILTER</h2>
+            </div>
           </div>
         )}
       </div>
       {isPanelOpen && (
-        <div className={`absolute left-0 ${isPanelOpen ? 'side-panel-full' : ''} w-32 md:w-44 h-[400px] md:h-[460px] p-2 mt-[46px] md:mt-[58px] scrollbar-medium scrollbar-thumb-rounded-full scrollbar-thumb-primary scrollbar-track-gray-400 overflow-y-scroll bg-primary text-white`}>
+        <div className={`absolute left-0 ${isPanelOpen ? 'side-panel-full' : ''} w-32 md:w-44 h-[400px] md:h-[460px] p-2 mt-[43px] md:mt-[58px] scrollbar-medium scrollbar-thumb-rounded-full scrollbar-thumb-primary scrollbar-track-gray-400 overflow-y-scroll bg-primary text-white`}>
           <nav>
+            {selectedGame && (
+              <button className="game-item w-full mb-2 p-2 text-l md:text-2xl font-semibold bg-primary border-3 border-solid border-secondary hover:cursor-pointer"
+                onClick={() => handleGameClick('')}>
+                <div className="game-item-hover p-2 hover:bg-red-900">
+                  <h2 className="text-l md:text-2xl font-semibold">Remove</h2>
+                </div>
+                <h2 className="text-l md:text-2xl font-semibold hover:hidden">None</h2>
+              </button>
+            )}
             <ul className='text-center'>
               {games.map((game) => (
                 <li className="game-item mb-2 p-3 text-l md:text-2xl font-semibold bg-secondary hover:cursor-pointer" 
@@ -69,35 +109,35 @@ export default function SidePanel() {
         </div>
       )}
       {isPanelOpen && (
-        <div className="h-auto w-32 md:w-44 px-3 py-2 mt-80 md:mt-96 bg-primary text-center text-objbw z-10">
+        <div className="h-auto w-32 md:w-44 px-3 py-2 mt-80 md:mt-96 bg-primary text-center text-objbw z-20">
           <h1 className="text-medium md:text-xl pb-1 duration-300">Information:</h1>
-      <ul className="p-0.5 duration-300">
-        <li>
-          <button onClick={() => handleNavigation('/?page=status')} className="text-sm md:text-medium underline hover:text-third hover:decoration-third">
-            Status
-          </button>
-        </li>
-        <li>
-          <button onClick={() => handleNavigation('/?page=gamessupported')} className="text-sm md:text-medium underline hover:text-third hover:decoration-third">
-            Games Supported
-          </button>
-        </li>
-        <li>
-          <button onClick={() => handleNavigation('/?page=contact')} className="text-sm md:text-medium underline hover:text-third hover:decoration-third">
-            Contact
-          </button>
-        </li>
-        <li>
-          <button onClick={() => handleNavigation('/?page=sources')} className="text-sm md:text-medium underline hover:text-third hover:decoration-third">
-            Sources
-          </button>
-        </li>
-        <li>
-          <button onClick={() => handleNavigation('/?page=legal')} className="text-sm md:text-medium underline hover:text-third hover:decoration-third">
-            Legal
-          </button>
-        </li>
-      </ul>
+          <ul className="p-0.5 duration-300">
+            <li>
+              <button onClick={() => handleNavigation('/?page=status')} className="text-sm md:text-medium underline hover:text-third hover:decoration-third">
+                Status
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleNavigation('/?page=gamessupported')} className="text-sm md:text-medium underline hover:text-third hover:decoration-third">
+                Games Supported
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleNavigation('/?page=contact')} className="text-sm md:text-medium underline hover:text-third hover:decoration-third">
+                Contact
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleNavigation('/?page=sources')} className="text-sm md:text-medium underline hover:text-third hover:decoration-third">
+                Sources
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleNavigation('/?page=legal')} className="text-sm md:text-medium underline hover:text-third hover:decoration-third">
+                Legal
+              </button>
+            </li>
+          </ul>
         </div>
       )}
     </div>

@@ -4,8 +4,14 @@ import TournamentInfo from '../api/tournamentsAPI';
 import TournamentsDisplay from '../components/components/TournamentsDisplay';
 
 // Events page
-const Events: React.FC = async () => {
-    const tournamentData = await TournamentInfo();
+const Events: React.FC<{ searchParams: { game?: string } }> = async ({ searchParams }) => {
+    const game = searchParams.game;
+    // Data fetched from the API
+    let tournamentData = await TournamentInfo();
+
+    if (game) {
+        tournamentData = tournamentData.filter(tournament => tournament.videogame.name?.toLocaleLowerCase() === game.toLocaleLowerCase());
+    }
 
     return (
         <div className='w-full h-full mx-3 md:mx-6 mt-10 bg-pagebackground'>

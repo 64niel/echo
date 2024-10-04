@@ -2,6 +2,7 @@
 import { Matches } from '@/app/api/Interfaces';
 import { getStarCount } from "./StarCount"
 import { getImagePathForGame } from "./ImagePaths";
+import React from 'react';
 
 interface MatchesDisplayProps {
   matchData: Matches[];
@@ -53,9 +54,15 @@ export default function MatchesDisplay({ matchData }: MatchesDisplayProps) {
             </div>
             <div className='flex justify-between items-center'>
               <div className="ml-0 mt-1 sm:mt-0 sm:ml-0 pr-4 text-left">
-                <p className='text-[9px] md:text-[11px]'>
-                  Time: {match.scheduled_at ? new Date(match.scheduled_at).toLocaleString('en-GB', { hour: '2-digit', minute: '2-digit', day: 'numeric', month: 'short', year: 'numeric' }) : 'N/A'}
-                </p>
+                {match.status === 'finished' ? (
+                  <p className='text-[9px] md:text-[11px]'>
+                    Started: {match.scheduled_at ? new Date(match.scheduled_at).toLocaleString('en-GB', { hour: '2-digit', minute: '2-digit', day: 'numeric', month: 'short', year: 'numeric' }) : 'N/A'}
+                  </p>
+                ) : (
+                  <p className='text-[9px] md:text-[11px]'>
+                    Starts: {match.scheduled_at ? new Date(match.scheduled_at).toLocaleString('en-GB', { hour: '2-digit', minute: '2-digit', day: 'numeric', month: 'short', year: 'numeric' }) : 'N/A'}
+                  </p>
+                )}
               </div>
               <h2 className='md:block text-xs md:text-sm ml-auto mr-2'>Game: {match.videogame.name}</h2>
             </div>

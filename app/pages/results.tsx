@@ -5,15 +5,17 @@ import MatchesDisplay from '../components/components/MatchesDisplay';
 import { Matches } from '../api/Interfaces';
 
 // Filter matches so that only ones happening today are shown and higher tiers take priority
-const filterMatches = (matches: Matches[]): Matches[] => {
-  return matches
-    .filter((match) => match.status === 'finished') // Include only finished matches
-    .sort((a, b) => {
-      const dateA = new Date(a.scheduled_at || '').getTime();
-      const dateB = new Date(b.scheduled_at || '').getTime();
-      return dateB - dateA; // Sort matches in descending order (newest first)
+const sortMatches = (matches: Matches[]): Matches[] => {
+    return matches
+      .filter((match) => match.status === 'finished') // Include only finished matches
+      .sort((a, b) => {
+        const dateA = new Date(a.scheduled_at || '').getTime();
+        const dateB = new Date(b.scheduled_at || '').getTime();
+        return dateA - dateB;
     });
 };
+
+const filterMatches = (matches: Matches[]): Matches[] => sortMatches(matches).reverse();
 
 // Results page
 const Results: React.FC<{ searchParams: { game?: string } }> = async ({ searchParams }) => {
@@ -24,7 +26,7 @@ const Results: React.FC<{ searchParams: { game?: string } }> = async ({ searchPa
     let matchData = filterMatches(init_matchesData);
 
     if (game) {
-        matchData = matchData.filter(match => match.videogame.name === game);
+        matchData = matchData.filter(match => match.videogame.name?.toLocaleLowerCase() === game.toLocaleLowerCase());
     }
 
     return (

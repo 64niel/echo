@@ -4,6 +4,7 @@ require('dotenv').config();
 import React from 'react';
 import PageHeader from "./components/Header";
 import SidePanel from "./components/SidePanel";
+import BackToTop from './components/components/BacktoTop';
 import Home from "./pages/home";
 import Events from './pages/events';
 import Results from './pages/results';
@@ -77,6 +78,7 @@ const Echo = ({ searchParams }: { searchParams: SearchParams }) => {
             <PageComponent searchParams={searchParams} />
           </div>
         </div>
+        <BackToTop />
         {/* Footer for the page */}
         <footer className="py-3 mt-10 bg-primary">
           <p className="text-center text-sm text-foreground duration-300">

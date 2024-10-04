@@ -21,7 +21,7 @@ const useHandleNavigation = () => {
     setTimeout(() => {
       setIsLoading(false);
       window.location.reload();
-    }, 1200);
+    }, 2000);
   };
 
   return handleNavigation;
