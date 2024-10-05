@@ -144,3 +144,8 @@ main {
     height: 30px;
   }
 }
+
+/* Hides content */
+.hidden {
+  display: none;
+}

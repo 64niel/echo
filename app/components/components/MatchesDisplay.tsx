@@ -1,6 +1,6 @@
 // MatchesDisplay.tsx
 import { Matches } from '@/app/api/Interfaces';
-import { getStarCount } from "./StarCount"
+import { getStarCount } from "./StarCount";
 import { getImagePathForGame } from "./ImagePaths";
 import React from 'react';
 

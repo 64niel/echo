@@ -1,7 +1,8 @@
-/// page.tsx
+// page.tsx
 require('dotenv').config();
 
 import React, { Suspense, lazy } from 'react';
+import FullScreenLoader from './components/SplashScreen';
 import PageHeader from "./components/Header";
 import SidePanel from "./components/SidePanel";
 import BackToTop from './components/components/BacktoTop';
@@ -82,8 +83,11 @@ const Echo = ({ searchParams }: { searchParams: SearchParams }) => {
           <SidePanel />
           {/* Main content section with all the pages */}
           <div className="flex-grow flex items-center justify-center">
-            <Suspense fallback={<div className='loader'><span></span></div>}>
-              <PageComponent searchParams={searchParams} />
+            <FullScreenLoader />
+            <Suspense fallback=''>
+              <div id='page-content' className='flex-grow flex items-center justify-center'>
+                <PageComponent searchParams={searchParams} />
+              </div>
             </Suspense>
           </div>
         </div>
@@ -106,4 +110,3 @@ function delayLoad<T>(promise: Promise<T>): Promise<T> {
     setTimeout(resolve, 0);
   }).then(() => promise);
 }
-
