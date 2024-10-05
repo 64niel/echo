@@ -1,15 +1,15 @@
 /// page.tsx
 require('dotenv').config();
 
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import PageHeader from "./components/Header";
 import SidePanel from "./components/SidePanel";
 import BackToTop from './components/components/BacktoTop';
-import Home from "./pages/home";
-import Events from './pages/events';
-import Results from './pages/results';
-import Matches from './pages/matches';
-import Calendar from './pages/calendar';
+import Home from './pages/home'
+const Events = lazy(() => delayLoad(import("./pages/events")));
+const Results = lazy(() => delayLoad(import("./pages/results")));
+const Matches = lazy(() => delayLoad(import("./pages/matches")));
+const Calendar = lazy(() => delayLoad(import("./pages/calendar")));
 import gamesSupported from './pages/pages/gamessupported';
 import Legal from './pages/pages/legal';
 import Status from './pages/pages/status';
@@ -18,7 +18,6 @@ import Contact from './pages/pages/contact';
 import SignIn from './pages/pages/signin';
 import Notifications from './pages/notifications';
 import notFound from './pages/notfound';
-import { LoadingProvider } from './components/components/loadingContent';
 
 interface SearchParams {
   page?: string;
@@ -74,7 +73,7 @@ const Echo = ({ searchParams }: { searchParams: SearchParams }) => {
 
   // Main Echo app function
   return (
-    <LoadingProvider>
+    <>
       <div className="flex flex-col min-h-screen text-foreground overflow-hidden bg-background">
         {/* Header for the page */}
         <PageHeader />
@@ -83,7 +82,9 @@ const Echo = ({ searchParams }: { searchParams: SearchParams }) => {
           <SidePanel />
           {/* Main content section with all the pages */}
           <div className="flex-grow flex items-center justify-center">
-            <PageComponent searchParams={searchParams} />
+            <Suspense fallback={<div className='loader'><span></span></div>}>
+              <PageComponent searchParams={searchParams} />
+            </Suspense>
           </div>
         </div>
         <BackToTop />
@@ -94,8 +95,15 @@ const Echo = ({ searchParams }: { searchParams: SearchParams }) => {
           </p>
         </footer>
       </div>
-    </LoadingProvider>
+    </>
   );
 };
 
 export default Echo;
+
+function delayLoad<T>(promise: Promise<T>): Promise<T> {
+  return new Promise((resolve) => {
+    setTimeout(resolve, 0);
+  }).then(() => promise);
+}
+

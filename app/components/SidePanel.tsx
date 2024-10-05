@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import useHandleNavigation from "./components/handleNav";
 
 export default function SidePanel() {
-  const [isPanelOpen, setIsPanelOpen] = useState(true);
+  const [isPanelOpen, setIsPanelOpen] = useState(false);
   const [selectedGame, setSelectedGame] = useState<string | null>(null);
   const togglePanel = () => setIsPanelOpen(!isPanelOpen);
   const handleNavigation = useHandleNavigation();
@@ -61,15 +61,28 @@ export default function SidePanel() {
       <div className={`flex items-center ${isPanelOpen ? 'w-32 md:w-44' : 'w-[40px] sm:w-[50px] md:w-[60px]'} pl-2 py-2 mb-24 ${isPanelOpen ? 'border-b-3' : 'border-0'} border-black border-opacity-50 ${isPanelOpen ? 'bg-primary' : 'bg-background'}`}>
         {/* Side Panel Close/Open Button */}
         <span onClick={togglePanel} className='hover:cursor-pointer'>
-          <svg 
-            className="size-5 sm:size-7 md:size-10 fill-objbw duration-300"
-            viewBox="0 0 1024 1024" 
-            version="1.1" 
-            xmlns="http://www.w3.org/2000/svg"
+          {isPanelOpen ? (
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke-width="1.5" 
+              stroke="currentColor" 
+              className="size-6 sm:size-8 md:size-9"
             >
-            <path d="M232.369231 282.813046h559.261538a31.507692 31.507692 0 0 0 0-63.015384h-559.261538a31.507692 31.507692 0 0 0 0 63.015384zM791.630769 480.492308h-559.261538a31.507692 31.507692 0 0 0 0 63.015384h559.261538a31.507692 31.507692 0 0 0 0-63.015384zM791.630769 741.186954h-559.261538a31.507692 31.507692 0 0 0 0 63.015384h559.261538a31.507692 31.507692 0 0 0 0-63.015384z"  />
-          </svg>
-        </span> 
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg 
+              className="size-5 sm:size-7 md:size-10 fill-objbw duration-300"
+              viewBox="0 0 1024 1024" 
+              version="1.1" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M232.369231 282.813046h559.261538a31.507692 31.507692 0 0 0 0-63.015384h-559.261538a31.507692 31.507692 0 0 0 0 63.015384zM791.630769 480.492308h-559.261538a31.507692 31.507692 0 0 0 0 63.015384h559.261538a31.507692 31.507692 0 0 0 0-63.015384zM791.630769 741.186954h-559.261538a31.507692 31.507692 0 0 0 0 63.015384h559.261538a31.507692 31.507692 0 0 0 0-63.015384z"  />
+            </svg>
+          )}
+        </span>
         {isPanelOpen && (
           <div>
             <div className="pl-2">
@@ -79,7 +92,7 @@ export default function SidePanel() {
         )}
       </div>
       {isPanelOpen && (
-        <div className={`absolute left-0 ${isPanelOpen ? 'side-panel-full' : ''} w-32 md:w-44 h-[400px] md:h-[460px] p-2 mt-[43px] md:mt-[58px] scrollbar-medium scrollbar-thumb-rounded-full scrollbar-thumb-primary scrollbar-track-gray-400 overflow-y-scroll bg-primary text-white`}>
+        <div className={`absolute left-0 ${isPanelOpen ? 'side-panel-full' : ''} w-32 md:w-44 h-[400px] md:h-[460px] p-2 mt-[43px] sm:mt-[51px] md:mt-[55px] scrollbar-medium scrollbar-thumb-rounded-full scrollbar-thumb-primary scrollbar-track-gray-400 overflow-y-scroll bg-primary text-white`}>
           <nav>
             {selectedGame && (
               <button className="game-item w-full mb-2 p-2 text-l md:text-2xl font-semibold bg-primary border-3 border-solid border-secondary hover:cursor-pointer"

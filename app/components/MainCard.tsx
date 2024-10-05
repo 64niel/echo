@@ -1,6 +1,6 @@
 // MainCard.tsx
 import "./components.css";
-import React from "react";
+import React, { Suspense } from "react";
 import MatchesDisplay from "./components/MatchesDisplay";
 import TournamentsDisplay from "./components/TournamentsDisplay";
 import LeaguesDisplay from "./components/LeaguesDisplay";
@@ -86,7 +86,7 @@ const MainCard: React.FC<{ searchParams?: { game?: string } }> = async ({ search
   
   // MainCard display and layout
   return (
-    <>
+    <Suspense fallback={<div className='loader'><span></span></div>}>
       <div className='m-3 md:m-10 mx-3 md:mx-10 p-1.5 bg-cardbackground'>
         {/* Matches title */}
         <h1 className='mt-1 sm:mt-2 md:mt-3.5 -mb-1 sm:-mb-1.5 md:-mb-1 text-center text-[15px] sm:text-lg md:text-2xl font-semibold'>Top Games Today</h1>
@@ -102,7 +102,7 @@ const MainCard: React.FC<{ searchParams?: { game?: string } }> = async ({ search
         <h1 className='mt-1 sm:mt-2 md:mt-3.5 -mb-1 sm:-mb-1.5 md:-mb-1 text-center text-[15px] sm:text-lg md:text-2xl font-semibold'>Top Ongoing/Upcoming Leagues</h1>
         <LeaguesDisplay leagueData={leagueData}/>
       </div>
-    </>
+    </Suspense>
   );
 };
 

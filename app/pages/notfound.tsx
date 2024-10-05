@@ -1,7 +1,6 @@
 'use client'
-
+// notfound.tsx
 import React from 'react';
-import { useRouter } from 'next/navigation';
 import useHandleNavigation from "../components/components/handleNav";
 
 const notFound: React.FC = () => {
