@@ -28,6 +28,7 @@ export default async function TournamentInfo(game?: string) {
     return dateA.getTime() - dateB.getTime();
   });
 
+  // Filter the data by the game
   if (game) {
     sortedData = sortedData.filter(tournament => tournament.videogame.name === game);
   }

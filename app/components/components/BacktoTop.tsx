@@ -2,11 +2,12 @@
 // BacktoTop.tsx
 import React, { useState, useEffect } from 'react';
 import '../components.css';
-import { div } from 'framer-motion/client';
 
+// Function to go back to the top of the page
 const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
+  // Set the visability at a certain Y value
   const toggleVisibility = () => {
     if (window.scrollY > 200) {
       setIsVisible(true);
@@ -15,6 +16,7 @@ const BackToTop = () => {
     }
   };
 
+  // Sets scroll to top of page
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -22,6 +24,7 @@ const BackToTop = () => {
     });
   };
 
+  // Event listener for scroll
   useEffect(() => {
     window.addEventListener('scroll', toggleVisibility);
     return () => {
@@ -32,7 +35,9 @@ const BackToTop = () => {
   return (
     <div className="back-to-top">
       {isVisible && (
-        <div className='tooltip'>    
+        // Tooltip for the back to top button
+        <div className='tooltip'>  
+            {/* Button for the back to top function */}
             <button onClick={scrollToTop} className="back-to-top-button bg-primary hover:bg-third">
             ↑
             </button>

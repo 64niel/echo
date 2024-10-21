@@ -1,10 +1,14 @@
+// gamessupported.tsx
 import React from 'react';
 
+// Page that displays the games that Echo supports
 const gamesSupported: React.FC = () => {
     return (
         <div className='w-full h-full mx-3 md:mx-6 mt-10 bg-pagebackground'>
             <div className='w-full mx-auto my-5 p-2 bg-cardbackground max-w-[80%] sm:max-w-[55%] md:max-w-[50%] lg:max-w-[40%]'>
+                {/* Header */}
                 <h1 className='my-2 text-lg md:text-xl text-center font-semibold'>Games Echo Supports:</h1>
+                {/* List of games supported by Echo (curtesy of Pandascore API) */}
                 <ul className='my-2 list-inside list-disc text-medium md:text-lg'>
                     <li className='my-1'>League of Legends</li>
                     <li className='my-1'>Counter-Strike 2</li>

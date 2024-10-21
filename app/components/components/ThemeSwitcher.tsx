@@ -5,20 +5,21 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 export function ThemeSwitcher() {
-  const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false); // State to track if the component has mounted
+  const { theme, setTheme } = useTheme(); // Destructuring theme and setTheme from useTheme hook
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    setMounted(true); // Set mounted to true when the component is mounted
+  }, []); // "[]" ensures this runs only once when the component mounts
 
-  if (!mounted) return null;
+  if (!mounted) return null; // If the component is not mounted, return null to prevent rendering
 
   const handleToggle = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
+    setTheme(theme === "dark" ? "light" : "dark"); // Toggle theme between dark and light
   };
 
   return (
+    // Button styling
     <div id="theme-switcher">
       <label className="relative inline-flex float-right items-center mr-2 md:mr-5 cursor-pointer">
         <input 
@@ -31,6 +32,7 @@ export function ThemeSwitcher() {
         <div
           className="relative w-24 md:w-28 h-10 md:h-12 bg-primary hover:bg-third peer-checked:bg-primary peer-checked:hover:bg-third rounded-full after:absolute after:content-[''] after:w-[34px] md:after:w-[40px] after:h-[34px] md:after:h-[40px] after:bg-gradient-to-r from-orange-500 to-yellow-400 peer-checked:after:from-primary peer-checked:after:to-black after:rounded-full after:top-[3px] md:after:top-[4px] after:left-[8px] md:after:left-[7px] active:after:w-[50px] peer-checked:after:left-[88px] md:peer-checked:after:left-[105px] peer-checked:after:translate-x-[-100%] shadow-sm duration-300 after:duration-300 after:shadow-md"
         ></div>
+        {/* Sun SVG */}
         <svg
           viewBox="0 0 24 24"
           data-name="Layer 1"
@@ -39,6 +41,7 @@ export function ThemeSwitcher() {
           className="size-6 md:size-7 fill-white peer-checked:opacity-60 absolute left-[13px]">
           <path d="M12,17c-2.76,0-5-2.24-5-5s2.24-5,5-5,5,2.24,5,5-2.24,5-5,5ZM13,0h-2V5h2V0Zm0,19h-2v5h2v-5ZM5,11H0v2H5v-2Zm19,0h-5v2h5v-2Zm-2.81-6.78l-1.41-1.41-3.54,3.54,1.41,1.41,3.54-3.54ZM7.76,17.66l-1.41-1.41-3.54,3.54,1.41,1.41,3.54-3.54Zm0-11.31l-3.54-3.54-1.41,1.41,3.54,3.54,1.41-1.41Zm13.44,13.44l-3.54-3.54-1.41,1.41,3.54,3.54,1.41-1.41Z" />
         </svg>
+        {/* Moon SVG */}
         <svg
           viewBox="0 0 24 24"
           data-name="Layer 1"

@@ -21,6 +21,7 @@
   src: url('/public/fonts/Segoe\ UI.ttf') format('ttf');
 }
 
+/* Body styling */
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -63,7 +64,7 @@ main {
   }
 }
 
-/* Universal loader for the app */
+/* Loader for the app */
 .loader {
   position: relative;
   width: 210px;
@@ -77,6 +78,7 @@ main {
   justify-content: center;
   overflow: hidden;
 }
+/* Outer dotted line */
 .loader::before {
   content: '';
   position: absolute;
@@ -87,6 +89,7 @@ main {
   box-shadow: inset -5px -5px 25px rgba(0,0,0,0.25),
   inset 5px 5px 35px rgba(0,0,0,0.25);
 }
+/* Inner dotted line */
 .loader::after {
   content: '';
   position: absolute;
@@ -97,6 +100,7 @@ main {
   box-shadow: inset -5px -5px 25px rgba(0,0,0,0.25),
   inset 5px 5px 35px rgba(0,0,0,0.25);
 }
+/* Loading radar line */
 .loader span {
   position: absolute;
   top: 50%;
@@ -105,9 +109,10 @@ main {
   height: 100%;
   background: transparent;
   transform-origin: top left;
-  animation: radar81 3s linear infinite;
-  border-top: 1px dashed #fff;
+  animation: radar81 2.5s linear infinite;
+  border-top: 1px dashed #CCC;
 }
+/* Loader radar gradient  */
 .loader span::before {
   content: '';
   position: absolute;
@@ -131,6 +136,7 @@ main {
   }
 }
 
+/* Responsive loader */
 @media screen and (max-width: 640px) {
   .loader {
     width: 120px;

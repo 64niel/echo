@@ -1,9 +1,9 @@
 'use client'
-
 import { useEffect, useState } from 'react';
 import { useTheme } from "next-themes";
 import Image from "next/image";
 
+// The logo component
 export function LogoImage() {
     const { theme, systemTheme } = useTheme();
     const [logoSrc, setLogoSrc] = useState("");
@@ -19,6 +19,7 @@ export function LogoImage() {
     return (
         <div className="inline-block h-[100px] md:h-[135px]">
             <a href="/">
+                {/* The logo */}
                 {logoSrc && <Image
                     src={logoSrc}
                     alt="Echo Logo"

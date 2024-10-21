@@ -23,13 +23,15 @@ const useHandleNavigation = () => {
       url += `?${queryString}`;
     }
 
+    // Navigate to the new URL
     router.push(url);
+    // Timeout to allow for loading time
     setTimeout(() => {
       if (pageContent) {
         pageContent.classList.remove('hidden');
         window.location.reload();
       }
-    }, 3000);
+    }, 3000); // Time (ms) for timeout
     router.push(url)
   };
 

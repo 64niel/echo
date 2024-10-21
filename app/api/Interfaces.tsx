@@ -45,6 +45,7 @@ export interface League {
   }
 };
 
+// The interface for the matches API draw
 export interface Matches {
   begin_at: string | null;
   end_at: string | null;

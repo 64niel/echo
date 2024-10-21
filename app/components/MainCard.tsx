@@ -12,37 +12,45 @@ import allMatchesInfo from "@/app/api/matchesAPI";
 // Filter matches so that only ones happening today are shown and higher tiers take priority
 const filterMatches = (matches: Matches[]): Matches[] => {
   const now = new Date();
+  // Set the start of the day (00:00:00)
   const startOfDay = new Date(now.setHours(0, 0, 0, 0));
+  // Set the end of the day (23:59:59)
   const endOfDay = new Date(now.setHours(23, 59, 59, 999));
   
   // Order in which tiers are displayed
   const tierOrder = ['s', 'a', 'b', 'c', 'd'];
 
+  // Filter matches
   return matches
     .filter((match) => {
+      // Convert match scheduled date to Date object
       const matchDate = new Date(match.scheduled_at || '');
+      // Check if the match is scheduled for today
       return matchDate >= startOfDay && matchDate <= endOfDay;
     })
     .filter((match) => {
+      // Check if the match is a high enough tier
       const isTier = match.tournament.tier && ['s', 'a', 'b'].includes(match.tournament.tier.toLowerCase());
       return isTier;
     })
     .sort((a, b) => {
       const tierA = a.tournament.tier.toLowerCase();
       const tierB = b.tournament.tier.toLowerCase();
+      // Sort in order of tier
       return tierOrder.indexOf(tierA) - tierOrder.indexOf(tierB);
     });
 };
 
 // Filter tournaments so that only A and S tier tournaments that are ongoing or in the future are shown
 const filterTournaments = (tournaments: Tournaments[]): Tournaments[] => {
-  const currentDate = new Date();
-  const tierOrder = ['s', 'a', 'b', 'c', 'd'];
+  const currentDate = new Date(); // Date of use by user
+  const tierOrder = ['s', 'a', 'b', 'c', 'd']; // Order of tiers
 
   return tournaments
+    // Filter tournaments
     .filter((tournament) => {
       const tier = tournament.tier?.toLowerCase();
-      // COnvert tournament dates given by API to local times
+      // Convert tournament dates given by API to local times
       const beginDate = tournament.begin_at ? new Date(tournament.begin_at).toLocaleString() : null;
       const endDate = tournament.end_at ? new Date(tournament.end_at).toLocaleString() : null;
 
@@ -51,9 +59,10 @@ const filterTournaments = (tournaments: Tournaments[]): Tournaments[] => {
 
       // Check if the tournament is A or S tier and if it is ongoing or in the future
       return (tier === 'a' || tier === 's') && 
-             (beginDate && new Date(beginDate) >= new Date(localCurrentDate) || 
-              endDate && new Date(endDate) >= new Date(localCurrentDate));
+        (beginDate && new Date(beginDate) >= new Date(localCurrentDate) || 
+        endDate && new Date(endDate) >= new Date(localCurrentDate));
     })
+    // Sort the tournaments by tier
     .sort((a, b) => {
       const tierA = a.tier.toLowerCase();
       const tierB = b.tier.toLowerCase();
@@ -73,6 +82,7 @@ const MainCard: React.FC<{ searchParams?: { game?: string } }> = async ({ search
   let todayMatches = filterMatches(init_matchesData);
   let filteredTournaments = filterTournaments(init_tournamentData);
 
+  // Filter data based on game
   if (game) {
     init_leagueData = init_leagueData.filter(league => league.videogame.name?.toLocaleLowerCase() === game.toLocaleLowerCase());
     todayMatches = todayMatches.filter(match => match.videogame.name?.toLocaleLowerCase() === game.toLocaleLowerCase());

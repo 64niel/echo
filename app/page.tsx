@@ -7,6 +7,7 @@ import PageHeader from "./components/Header";
 import SidePanel from "./components/SidePanel";
 import BackToTop from './components/components/BacktoTop';
 import Home from './pages/home'
+// Lazy loads the pages only when they are called
 const Events = lazy(() => delayLoad(import("./pages/events")));
 const Results = lazy(() => delayLoad(import("./pages/results")));
 const Matches = lazy(() => delayLoad(import("./pages/matches")));
@@ -20,54 +21,72 @@ import SignIn from './pages/pages/signin';
 import Notifications from './pages/notifications';
 import notFound from './pages/notfound';
 
+// Interface for whether page and game are selected
 interface SearchParams {
   page?: string;
   game?: string;
 }
 
+// Echo component that takes searchParams as a prop
 const Echo = ({ searchParams }: { searchParams: SearchParams }) => {
+  // Default to 'home' if no page is specified
   const page = searchParams.page || 'home';
 
+  // Variable to hold the component to be rendered
   let PageComponent;
 
+  // Determine which component to render based on the page parameter
   switch (page) {
     case 'home':
+      // Render Home component with searchParams passed as props
       PageComponent = (props: React.JSX.IntrinsicAttributes) => <Home {...props} searchParams={searchParams} />;
       break;
     case 'events':
+      // Render Events component
       PageComponent = Events;
       break;
     case 'results':
+      // Render Results component
       PageComponent = Results;
       break;
     case 'matches':
+      // Render Matches component
       PageComponent = Matches;
       break;
     case 'calendar':
+      // Render Calendar component
       PageComponent = Calendar;
       break;
     case 'gamessupported':
+      // Render gamesSupported component
       PageComponent = gamesSupported;
       break;
     case 'status':
+      // Render Status component
       PageComponent = Status;
       break;
     case 'contact':
+      // Render Contact component
       PageComponent = Contact;
       break;
     case 'sources':
+      // Render Sources component
       PageComponent = Sources;
       break;
     case 'legal':
+      // Render Legal component
       PageComponent = Legal;
       break;
     case 'signin':
+      // Render SignIn component
       PageComponent = SignIn;
       break;
     case 'notifications':
+      // Render Notifications component
       PageComponent = Notifications;
       break;
     default:
+      // Fallback to page error page if no page was found
       PageComponent = notFound;
       break;
   }
@@ -105,6 +124,7 @@ const Echo = ({ searchParams }: { searchParams: SearchParams }) => {
 
 export default Echo;
 
+// Function to delay the loading of the pages
 function delayLoad<T>(promise: Promise<T>): Promise<T> {
   return new Promise((resolve) => {
     setTimeout(resolve, 0);

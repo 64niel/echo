@@ -1,6 +1,5 @@
 // LeaguesDisplay.tsx
 import { League } from '@/app/api/Interfaces';
-import { getStarCount } from "./StarCount"
 import { getImagePathForGame } from "./ImagePaths";
 
 interface MatchesDisplayProps {

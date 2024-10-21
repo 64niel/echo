@@ -14,12 +14,14 @@ const SignIn: React.FC = () => {
           The user feature is not available at this time.
         </h1>
         <div className='mt-4'>
+          {/* Option to navigate back to home */}
           <button onClick={() => handleNavigation('/')} className="group transition duration-300 my-3 relative text-lg">
             Back to HOME
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-fifth scale-x-0 group-hover:scale-x-100 transition-transform duration-400"></span>
           </button>
         </div>
         <div className='mb-2'>
+        {/* Option to learn more about the state of the app */}
         <button onClick={() => handleNavigation('/?page=status')} className="group transition duration-300 my-3 relative text-lg">
             Learn More
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-fifth scale-x-0 group-hover:scale-x-100 transition-transform duration-400"></span>

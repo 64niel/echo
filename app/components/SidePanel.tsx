@@ -6,14 +6,17 @@ import "./components.css";
 import { useEffect, useState } from 'react';
 import useHandleNavigation from "./components/handleNav";
 
+// Side Panel Component
 export default function SidePanel() {
-  const [isPanelOpen, setIsPanelOpen] = useState(false);
+  const [isPanelOpen, setIsPanelOpen] = useState(false); // Panel open state (initially closed)
   const [selectedGame, setSelectedGame] = useState<string | null>(null);
   const togglePanel = () => setIsPanelOpen(!isPanelOpen);
   const handleNavigation = useHandleNavigation();
 
+  // List of games supported by the API
   const games = ["LoL", "CS2", "Valorant", "Dota 2", "MLBB", "PUBG", "R6 Siege", "Overwatch", "RL", "EA FC", "CoD", "Wild Rift", "KoG", "StarCraft 2", "Starcraft BW"];
   
+  // Mapping of game names to their standardized API names
   const gameNameMapping: { [key: string]: string } = {
     "LoL": "lol",
     "CS2": "counter-strike",
@@ -40,8 +43,11 @@ export default function SidePanel() {
     return `/images/${fileName}_sb.png`;
   }
 
+  // Function to handle game click on side panel
   const handleGameClick = (game: string) => {
+    // Parse the current URL's query parameters
     const urlParams = new URLSearchParams(window.location.search);
+    // Get the 'page' parameter from the URL
     const currentPage = urlParams.get('page') || 'home';
     const apiGameName = gameNameMapping[game] || game; // Use the mapped value or fallback to the original name
     handleNavigation('/', { page: currentPage, game: apiGameName });
@@ -49,10 +55,12 @@ export default function SidePanel() {
     localStorage.setItem('selectedGame', game || ''); // Save the selected game to local storage
   };
 
+  // Load the selected game 
+  // Makes sure games selected are shown when using navigation
   useEffect(() => {
     const savedGame = localStorage.getItem('selectedGame');
     if (savedGame) {
-      setSelectedGame(savedGame);
+      setSelectedGame(savedGame); 
     }
   }, []);
 
@@ -83,6 +91,7 @@ export default function SidePanel() {
             </svg>
           )}
         </span>
+        {/* When panel is open display the header text */}
         {isPanelOpen && (
           <div>
             <div className="pl-2">
@@ -91,9 +100,11 @@ export default function SidePanel() {
           </div>
         )}
       </div>
+      {/* When panel is open display main content */}
       {isPanelOpen && (
         <div className={`absolute left-0 ${isPanelOpen ? 'side-panel-full' : ''} w-32 md:w-44 h-[400px] md:h-[460px] p-2 mt-[43px] sm:mt-[51px] md:mt-[55px] scrollbar-medium scrollbar-thumb-rounded-full scrollbar-thumb-primary scrollbar-track-gray-400 overflow-y-scroll bg-primary text-white`}>
           <nav>
+            {/* When a game is selected, button to remove game filtering appears */}
             {selectedGame && (
               <button className="game-item w-full mb-2 p-2 text-l md:text-2xl font-semibold bg-primary border-3 border-solid border-secondary hover:cursor-pointer"
                 onClick={() => handleGameClick('')}>
@@ -103,12 +114,14 @@ export default function SidePanel() {
                 <h2 className="text-l md:text-2xl font-semibold hover:hidden">None</h2>
               </button>
             )}
+            {/* List of games displayed on side panel */}
             <ul className='text-center'>
               {games.map((game) => (
                 <li className={`game-item mb-2 p-3 text-l md:text-2xl font-semibold bg-secondary hover:cursor-pointer ${selectedGame === game ? 'bg-third border-2 border-solid border-black': ''}`} 
                   key={game}
                   onClick={() => handleGameClick(game)}
                 >
+                  {/* Image for games appearing on hover */}
                   <div
                     className="game-item-hover"
                     style={{ backgroundImage: `url(${getImagePathForGame(game)})` }}
@@ -121,9 +134,12 @@ export default function SidePanel() {
           </nav>
         </div>
       )}
+      {/* Mini side panel with extra information when side panel is open */}
       {isPanelOpen && (
         <div className="h-auto w-32 md:w-44 px-3 py-2 mt-80 md:mt-96 bg-primary text-center text-objbw z-20">
+          {/* Header */}
           <h1 className="text-medium md:text-xl pb-1 duration-300">Information:</h1>
+          {/* Navigable elements */}
           <ul className="p-0.5 duration-300">
             <li>
               <button onClick={() => handleNavigation('/?page=status')} className="text-sm md:text-medium underline hover:text-third hover:decoration-third">

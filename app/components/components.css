@@ -1,8 +1,8 @@
 @tailwind utilities;
 
-/* This CSS targets the span inside your link elements with the group class */
+/* Targets the span inside link elements with the group class */
 .group:hover .underline::before {
-    @apply scale-x-100; /* This applies the full scale effect on hover */
+    @apply scale-x-100; /* Applies the full scale effect on hover */
   }
   
   .underline::before {
@@ -81,12 +81,14 @@ opacity: 1;
   transition-delay: 0s;
 }
 
+/* Display tooltip on hover */
 .tooltip:hover .tooltiptext {
   visibility: visible;
   transition-delay: 0.3s;
   opacity: 100%;
 }
 
+/* Tooltip font size on medium screensize and lower */
 @media (max-width: 768px) {
   .tooltip .tooltiptext {
     font-size: 12px;
@@ -94,6 +96,7 @@ opacity: 1;
 }
 
 /* Back to top button */
+/* Positioning */
 .back-to-top {
   position: fixed;
   bottom: 20px;
@@ -101,6 +104,7 @@ opacity: 1;
   z-index: 1000;
 }
 
+/* Button styling */
 .back-to-top-button {
   border: none;
   padding: 10px 16px;
@@ -111,6 +115,7 @@ opacity: 1;
   transition: opacity 0.3s;
 }
 
+/* Smaller button at medium and lower screen sizes */
 @media (max-width: 768px) {
   .back-to-top{
     bottom: 12px;
