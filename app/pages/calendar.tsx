@@ -1,6 +1,6 @@
 'use client'
 // calendar.tsx
-import useHandleNavigation from '../components/components/handleNav';
+import useHandleNavigation from '../components/functions/handleNav';
 
 // Calendar page
 const Calendar: React.FC = () => {

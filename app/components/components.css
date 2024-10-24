@@ -1,5 +1,50 @@
 @tailwind utilities;
 
+/* Animation for nav bar when transitioning to sticky form (upwards fade) */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Transition nav bar to sticky form */
+nav.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  border-bottom: 2px solid black;
+  z-index: 1000;
+  animation-duration: 0.5s;
+  animation-name: fadeInUp;
+  animation-timing-function: ease-out;
+}
+
+/* Animation for nav bar when transitioning to static form (downwards fade) */
+@keyframes fadeOutDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Transition nav bar to static form */
+nav.non-sticky {
+  z-index: 1000;
+  animation-duration: 0.5s;
+  animation-name: fadeOutDown;
+  animation-timing-function: ease-out;
+  border-bottom: 0px solid black;
+}
+
 /* Targets the span inside link elements with the group class */
 .group:hover .underline::before {
     @apply scale-x-100; /* Applies the full scale effect on hover */

@@ -1,7 +1,7 @@
 // matches.tsx
 import React from 'react';
 import allMatchesInfo from '../api/matchesAPI';
-import MatchesDisplay from '../components/components/MatchesDisplay';
+import MatchesDisplay from '../components/layout/MatchesDisplay';
 import type { Matches } from '../api/Interfaces';
 
 // Filter matches so that only matches occuring today and upcoming matches are displayed

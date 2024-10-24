@@ -1,10 +1,10 @@
 // Header.tsx
-import { ThemeSwitcher } from "./components/ThemeSwitcher";
-import { NotificationButton } from "./components/NotificationButton";
-import { SignInButton } from "./components/SignIn";
-import { LogoImage } from "./components/Logo";
-import { NavBar } from "./components/NavBar";
-import { CalendarButton } from "./components/CalendarButton";
+import { ThemeSwitcher } from "./ui/ThemeSwitcher";
+import { NotificationButton } from "./ui/NotificationButton";
+import { SignInButton } from "./ui/SignIn";
+import { LogoImage } from "./layout/Logo";
+import { NavBar } from "./layout/NavBar";
+import { CalendarButton } from "./ui/CalendarButton";
 
 // Main header of the app
 export default function PageHeader() {
@@ -25,7 +25,9 @@ export default function PageHeader() {
                 </div>
             </div>
             {/* Navigation bar */}
-            <NavBar />
+            <div className="mt-2 sm:mt-0">
+                <NavBar />
+            </div>
         </div> 
     );
   }

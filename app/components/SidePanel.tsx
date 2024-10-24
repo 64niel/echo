@@ -4,7 +4,7 @@
 import "../globals.css";
 import "./components.css";
 import { useEffect, useState } from 'react';
-import useHandleNavigation from "./components/handleNav";
+import useHandleNavigation from "./functions/handleNav";
 
 // Side Panel Component
 export default function SidePanel() {
@@ -65,7 +65,7 @@ export default function SidePanel() {
   }, []);
 
   return (
-    <div className={`${isPanelOpen ? 'absolute' : 'relative'} md:relative flex flex-col my-5 -mr-2 z-20`}>
+    <div className={`${isPanelOpen ? 'absolute' : 'relative'} md:relative flex flex-col my-5 mt-10 -mr-2 z-20`}>
       <div className={`flex items-center ${isPanelOpen ? 'w-32 md:w-44' : 'w-[40px] sm:w-[50px] md:w-[60px]'} pl-2 py-2 mb-24 ${isPanelOpen ? 'border-b-3' : 'border-0'} border-black border-opacity-50 ${isPanelOpen ? 'bg-primary' : 'bg-background'}`}>
         {/* Side Panel Close/Open Button */}
         <span onClick={togglePanel} className='hover:cursor-pointer'>
@@ -102,7 +102,7 @@ export default function SidePanel() {
       </div>
       {/* When panel is open display main content */}
       {isPanelOpen && (
-        <div className={`absolute left-0 ${isPanelOpen ? 'side-panel-full' : ''} w-32 md:w-44 h-[400px] md:h-[460px] p-2 mt-[43px] sm:mt-[51px] md:mt-[55px] scrollbar-medium scrollbar-thumb-rounded-full scrollbar-thumb-primary scrollbar-track-gray-400 overflow-y-scroll bg-primary text-white`}>
+        <div className={`absolute left-0 ${isPanelOpen ? 'side-panel-full' : ''} w-32 md:w-44 h-[400px] md:h-[460px] p-2 mt-[43px] sm:mt-[51px] md:mt-[54px] scrollbar-medium scrollbar-thumb-rounded-full scrollbar-thumb-primary scrollbar-track-gray-400 overflow-y-scroll bg-primary text-white`}>
           <nav>
             {/* When a game is selected, button to remove game filtering appears */}
             {selectedGame && (

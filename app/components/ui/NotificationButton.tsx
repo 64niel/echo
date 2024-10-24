@@ -1,6 +1,6 @@
 'use client'
 // NotificationButton.tsx
-import useHandleNavigation from "./handleNav";
+import useHandleNavigation from "../functions/handleNav";
 
 export function NotificationButton() {
   // Initialize the navigation handler using the custom hook
@@ -9,7 +9,7 @@ export function NotificationButton() {
   return (
     // Notification button
     // Navigates to the notifications page on click
-    <button className="float-right h-12 w-12 mr-2 md:mr-5"
+    <button className="float-right h-12 w-12 mr-2 md:mr-5 -mt-1 sm:-mt-0"
       title="Notifications"
       onClick={() => handleNavigation("/?page=notifications")}
     >

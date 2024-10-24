@@ -1,7 +1,7 @@
 // matches.tsx
 import React from 'react';
 import allMatchesInfo from '../api/matchesAPI';
-import MatchesDisplay from '../components/components/MatchesDisplay';
+import MatchesDisplay from '../components/layout/MatchesDisplay';
 import { Matches } from '../api/Interfaces';
 
 // Filter matches so that only ones happening today are shown and higher tiers take priority

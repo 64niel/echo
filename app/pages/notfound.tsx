@@ -1,7 +1,7 @@
 'use client'
 // notfound.tsx
 import React from 'react';
-import useHandleNavigation from "../components/components/handleNav";
+import useHandleNavigation from "../components/functions/handleNav";
 
 // Page not found
 const notFound: React.FC = () => {

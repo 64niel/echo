@@ -1,7 +1,7 @@
 // events.tsx
 import React from 'react';
 import TournamentInfo from '../api/tournamentsAPI';
-import TournamentsDisplay from '../components/components/TournamentsDisplay';
+import TournamentsDisplay from '../components/layout/TournamentsDisplay';
 
 // Events page
 const Events: React.FC<{ searchParams: { game?: string } }> = async ({ searchParams }) => {

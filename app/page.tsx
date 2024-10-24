@@ -5,7 +5,7 @@ import React, { Suspense, lazy } from 'react';
 import FullScreenLoader from './components/SplashScreen';
 import PageHeader from "./components/Header";
 import SidePanel from "./components/SidePanel";
-import BackToTop from './components/components/BacktoTop';
+import BackToTop from './components/ui/BacktoTop';
 import Home from './pages/home'
 // Lazy loads the pages only when they are called
 const Events = lazy(() => delayLoad(import("./pages/events")));
@@ -94,10 +94,10 @@ const Echo = ({ searchParams }: { searchParams: SearchParams }) => {
   // Main Echo app function
   return (
     <>
-      <div className="flex flex-col min-h-screen text-foreground overflow-hidden bg-background">
+      <div className="flex flex-col min-h-[115vh] md:min-h-screen text-foreground overflow-hidden bg-background">
         {/* Header for the page */}
         <PageHeader />
-        <div className="flex flex-grow">
+        <div className="flex flex-grow -mt-5 sm:-mt-1">
           {/* Side panel section */}
           <SidePanel />
           {/* Main content section with all the pages */}

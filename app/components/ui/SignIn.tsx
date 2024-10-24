@@ -1,6 +1,6 @@
 "use client";
 // SignIn.tsx
-import useHandleNavigation from './handleNav';
+import useHandleNavigation from '../functions/handleNav';
 
 export function SignInButton() {
   // Initialize the navigation handler using the custom hook

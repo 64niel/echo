@@ -1,9 +1,9 @@
 // MainCard.tsx
 import "./components.css";
 import React, { Suspense } from "react";
-import MatchesDisplay from "./components/MatchesDisplay";
-import TournamentsDisplay from "./components/TournamentsDisplay";
-import LeaguesDisplay from "./components/LeaguesDisplay";
+import MatchesDisplay from "./layout/MatchesDisplay";
+import TournamentsDisplay from "./layout/TournamentsDisplay";
+import LeaguesDisplay from "./layout/LeaguesDisplay";
 import { Tournaments, League, Matches } from '../api/Interfaces';
 import TournamentInfo from "@/app/api/tournamentsAPI";
 import LeagueInfo from "@/app/api/leaguesAPI";

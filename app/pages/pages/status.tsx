@@ -22,7 +22,6 @@ const Status: React.FC = () => {
                 <ul className='my-2 list-inside list-disc text-medium md:text-lg'>
                     <li>Signing Up/Logging In</li>
                     <li>Advanced Filtering Methods</li>
-                    <li>Daniel Lee</li>
                     <li>Search Bar</li>
                     <li>Full Mobile Support</li>
                 </ul>

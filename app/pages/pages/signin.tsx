@@ -1,6 +1,6 @@
 'use client'
 // signin.tsx
-import useHandleNavigation from '@/app/components/components/handleNav';
+import useHandleNavigation from '@/app/components/functions/handleNav';
 
 // Sign in/up page
 const SignIn: React.FC = () => {
