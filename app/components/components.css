@@ -92,11 +92,18 @@ opacity: 1;
 /* Star colour for tier */
 .star {
   color: gray; /* Default star color */
-  font-size: 14px; /* Adjust size as needed */
+  font-size: 15px; /* Adjust size as needed */
 }
 
 .star.bright {
-  color: gold; /* Bright star color */
+  color: #2E604F; /* Backup bright star color */
+  -webkit-text-fill-color: gold; /* Default bright star color */
+  -webkit-text-stroke: 1px black; /* Outline for better contrast */
+}
+
+.dark .star.bright {
+  color: gold; /* Default on dark is gold */
+  -webkit-text-stroke: 0; /* Remove outline in dark mode */
 }
 
 /* Tooltip styling for app */

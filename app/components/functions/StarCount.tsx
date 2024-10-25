@@ -4,7 +4,7 @@
 export const getStarCount = (tier: string) => {
     switch (tier) {
         case 's':
-            return 5;
+            return 5; // When the API has returned 'S' tier, the bright star count is 5
         case 'a':
             return 4;
         case 'b':
@@ -16,6 +16,6 @@ export const getStarCount = (tier: string) => {
         case 'Unranked':
             return 0;
         default:
-            return 0;
+            return 0; // Default to zero on no return
     }
 };
